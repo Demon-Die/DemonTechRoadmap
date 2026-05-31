@@ -108,49 +108,9 @@ async function enrichContributor({ guessedUsername, name, email }) {
     console.warn(`    ⚠ API error for "${guessedUsername}": ${err.message}`);
   }
 
-  // 2. Name-based search
-  if (name && name !== guessedUsername) {
-    try {
-      const q = encodeURIComponent(`${name} in:name type:user`);
-      const search = await fetch(
-        `https://api.github.com/search/users?q=${q}&per_page=5`,
-        { headers }
-      );
-      if (search.ok) {
-        const { items } = await search.json();
-        if (items && items.length > 0) {
-          const lowerName = name.toLowerCase();
-          const scored = items.map((item) => {
-            let score = 0;
-            const loginLower = item.login.toLowerCase();
-            const nameLower = (item.name || "").toLowerCase();
-            if (nameLower === lowerName) score += 100;
-            if (loginLower === lowerName) score += 90;
-            if (nameLower.includes(lowerName)) score += 50;
-            if (loginLower.includes(lowerName.replace(/\s+/g, ""))) score += 40;
-            if (loginLower.includes(lowerName.replace(/\s+/g, "-"))) score += 40;
-            return { ...item, score };
-          });
-          scored.sort((a, b) => b.score - a.score);
-          const best = scored[0];
 
-          if (best.score > 0) {
-            console.log(`    ✓ name search: "${name}" → @${best.login} (score: ${best.score})`);
-            return {
-              username: best.login,
-              name: best.login,
-              avatarUrl: best.avatar_url,
-              htmlUrl: best.html_url,
-            };
-          }
-        }
-      }
-    } catch (err) {
-      console.warn(`    ⚠ API error during name search: ${err.message}`);
-    }
-  }
 
-  // 3. Commit-based lookup using email
+  // 2. Commit-based lookup using email
   if (email) {
     try {
       const emailEncoded = encodeURIComponent(email);
