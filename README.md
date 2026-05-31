@@ -130,8 +130,8 @@ Thanks to these amazing people for contributing to this project! 🎉
 
 Join our community and connect with other learners and contributors.
 
-- Discord: **[Add Your Discord Invite Link Here]**
-- Website: **[Add Your Website Link Here]**
+- Discord: https://discord.gg/yWtjK2Tb8T
+- Website: https://demon-tech-roadmap.vercel.app/
 
 ---
 
