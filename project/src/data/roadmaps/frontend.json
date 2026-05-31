@@ -1,0 +1,320 @@
+{
+  "id": "frontend",
+  "title": "Frontend Development",
+  "description": "A comprehensive roadmap for mastering modern Frontend Web Development. This path guides you from basic web structures to building highly optimized, type-safe, and production-ready web applications.",
+  "metadata": {
+    "difficulty": "Beginner to Advanced",
+    "estimatedTime": "4 to 6 Months",
+    "version": "1.0.0",
+    "lastUpdated": "2026-05-31"
+  },
+  "phases": [
+    {
+      "phaseId": "phase-1-foundations",
+      "title": "Phase 1: Web Foundations",
+      "description": "Master the absolute building blocks of the web: structuring and styling content.",
+      "topics": [
+        {
+          "topicId": "html",
+          "name": "HTML",
+          "description": "HyperText Markup Language (HTML) is the core standard markup language used to structure content on the web.",
+          "importance": "Critical",
+          "keyConcepts": [
+            "Semantic HTML tags (header, footer, nav, article, section)",
+            "HTML forms, inputs, and client-side validation",
+            "SEO best practices, document metadata, and head configuration",
+            "Accessibility (ARIA attributes, keyboard navigation, screen reader support)"
+          ],
+          "resources": [
+            {
+              "name": "MDN Web Docs - Learning HTML",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/HTML",
+              "type": "documentation",
+              "duration": "Self-paced"
+            },
+            {
+              "name": "freeCodeCamp - Responsive Web Design Course",
+              "url": "https://www.freecodecamp.org/learn/2022/responsive-web-design/",
+              "type": "interactive course",
+              "duration": "40 hours"
+            }
+          ],
+          "projects": [
+            {
+              "name": "Personal Portfolio Page",
+              "description": "Build a fully semantic page containing your bio, work experience, list of projects, and a contact form with input validation.",
+              "keyDeliverables": [
+                "100% semantic elements",
+                "Working contact form validation",
+                "Accessibility compliance"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "css",
+          "name": "CSS",
+          "description": "Cascading Style Sheets (CSS) is used to control layout, formatting, typography, and visual presentation of HTML documents.",
+          "importance": "Critical",
+          "keyConcepts": [
+            "Box model, specificity, and cascading rules",
+            "Modern layouts (Flexbox and CSS Grid)",
+            "Responsive Web Design using media queries",
+            "Transitions, keyframe animations, and 3D transforms"
+          ],
+          "resources": [
+            {
+              "name": "MDN Web Docs - CSS First Steps",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/CSS",
+              "type": "documentation",
+              "duration": "Self-paced"
+            },
+            {
+              "name": "CSS-Tricks - Complete Guide to Flexbox",
+              "url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+              "type": "article",
+              "duration": "30 min read"
+            },
+            {
+              "name": "CSS-Tricks - Complete Guide to Grid",
+              "url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
+              "type": "article",
+              "duration": "45 min read"
+            }
+          ],
+          "projects": [
+            {
+              "name": "Responsive Landing Page",
+              "description": "Design and build a responsive landing page using Grid and Flexbox layouts. The page must adjust seamlessly to desktop, tablet, and mobile views.",
+              "keyDeliverables": [
+                "Complex grid layout",
+                "Mobile-first responsive design",
+                "Smooth hover animations"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phaseId": "phase-2-javascript",
+      "title": "Phase 2: Programming the Web",
+      "description": "Bring your websites to life by learning programmatic interactions, asynchronous behaviors, and logic.",
+      "topics": [
+        {
+          "topicId": "javascript",
+          "name": "JavaScript",
+          "description": "JavaScript is a versatile scripting language that allows you to implement complex features on web pages, from animations to async operations.",
+          "importance": "Critical",
+          "keyConcepts": [
+            "Variables, data types, operators, and control flow",
+            "DOM manipulation, events, and bubbling",
+            "Asynchronous JavaScript (Promises, async/await, Fetch API)",
+            "Modern ES6+ syntax (Destructuring, spread/rest operators, modules)"
+          ],
+          "resources": [
+            {
+              "name": "javascript.info - The Modern JavaScript Tutorial",
+              "url": "https://javascript.info/",
+              "type": "interactive guide",
+              "duration": "Self-paced"
+            },
+            {
+              "name": "MDN Web Docs - JavaScript Guide",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+              "type": "documentation",
+              "duration": "Self-paced"
+            }
+          ],
+          "projects": [
+            {
+              "name": "Interactive Dashboard (Weather or Currency)",
+              "description": "Develop a client-side application that fetches data from a public REST API and dynamically displays it on a card-based grid interface with search and filters.",
+              "keyDeliverables": [
+                "Asynchronous API fetches",
+                "Dynamic DOM updates based on user interaction",
+                "Error states for failed requests"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phaseId": "phase-3-modern-styling",
+      "title": "Phase 3: Utility-First Styling",
+      "description": "Speed up your CSS development flow by utilizing modern styling tools and frameworks.",
+      "topics": [
+        {
+          "topicId": "tailwind-css",
+          "name": "Tailwind CSS",
+          "description": "A utility-first CSS framework for rapidly building custom user interfaces without leaving your HTML.",
+          "importance": "High",
+          "keyConcepts": [
+            "Utility-first concept vs. semantic CSS",
+            "Responsive utility modifiers (`sm:`, `md:`, `lg:`, `xl:`)",
+            "Hover, focus, active, and peer state styling",
+            "Theme configuration and customizable spacing, typography, and color tokens"
+          ],
+          "resources": [
+            {
+              "name": "Tailwind CSS Official Documentation",
+              "url": "https://tailwindcss.com/docs",
+              "type": "documentation",
+              "duration": "Self-paced"
+            },
+            {
+              "name": "Tailwind Labs - YouTube Channel",
+              "url": "https://www.youtube.com/@TailwindLabs",
+              "type": "video channel",
+              "duration": "Ongoing"
+            }
+          ],
+          "projects": [
+            {
+              "name": "Cyberpunk SaaS Landing Page",
+              "description": "Recreate a stunning SaaS landing page with dark mode, glowing gradients, hover-zoom effects, and fluid grids completely using Tailwind utility classes.",
+              "keyDeliverables": [
+                "Consistent color palette matching modern HSL design",
+                "Responsive hamburger menu and navigation",
+                "Complex grid and card hover states"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phaseId": "phase-4-type-safety",
+      "title": "Phase 4: Type-Safe Development",
+      "description": "Build highly scalable and robust applications by adding static typing to your JavaScript.",
+      "topics": [
+        {
+          "topicId": "typescript",
+          "name": "TypeScript",
+          "description": "TypeScript is a strongly-typed programming language that builds on JavaScript, giving you better tooling and fewer runtime bugs.",
+          "importance": "High",
+          "keyConcepts": [
+            "Primitive types, type assertions, and type inference",
+            "Interfaces, Types, and Union/Intersection types",
+            "Generics, utility types, and structural typing",
+            "Strict mode configuration and integration with build tools"
+          ],
+          "resources": [
+            {
+              "name": "TypeScript Official Handbook",
+              "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+              "type": "documentation",
+              "duration": "Self-paced"
+            },
+            {
+              "name": "Total TypeScript (Beginner's Guide)",
+              "url": "https://www.totaltypescript.com/",
+              "type": "interactive guide",
+              "duration": "15 hours"
+            }
+          ],
+          "projects": [
+            {
+              "name": "Type-Safe Task Manager CLI/Web App",
+              "description": "Develop a state-driven task tracker where tasks are fully structured with strict interfaces and enums for categories/status.",
+              "keyDeliverables": [
+                "Strong typed state variables",
+                "Interfaces for all domain schemas",
+                "Zero compile-time TypeScript warnings"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phaseId": "phase-5-frontend-libraries",
+      "title": "Phase 5: Dynamic UI Libraries",
+      "description": "Learn to manage user interfaces using component-driven frameworks and declarative state.",
+      "topics": [
+        {
+          "topicId": "react",
+          "name": "React",
+          "description": "React is an extremely popular component-based JavaScript library for building interactive user interfaces.",
+          "importance": "Critical",
+          "keyConcepts": [
+            "JSX syntax, Virtual DOM, and component rendering cycles",
+            "State management using hooks (`useState`, `useReducer`)",
+            "Handling side effects (`useEffect`, `useLayoutEffect`)",
+            "Performance optimization (`useMemo`, `useCallback`, `React.memo`)"
+          ],
+          "resources": [
+            {
+              "name": "React Official Documentation",
+              "url": "https://react.dev/",
+              "type": "documentation",
+              "duration": "Self-paced"
+            },
+            {
+              "name": "Epic React by Kent C. Dodds",
+              "url": "https://epicreact.dev/",
+              "type": "course",
+              "duration": "30 hours"
+            }
+          ],
+          "projects": [
+            {
+              "name": "Interactive Shopping Cart Dashboard",
+              "description": "Build a React shopping dashboard with filters, search, a sliding shopping cart modal, and local storage state persistence.",
+              "keyDeliverables": [
+                "Clean custom React hooks",
+                "State lifting and context management",
+                "Reusable modal and cart card components"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phaseId": "phase-6-frameworks",
+      "title": "Phase 6: Production Frameworks",
+      "description": "Assemble and deploy high-performance applications with Server Side Rendering, routing, and APIs.",
+      "topics": [
+        {
+          "topicId": "next-js",
+          "name": "Next.js",
+          "description": "Next.js is a powerful React framework that enables developers to build high-performance production applications with server-side features.",
+          "importance": "High",
+          "keyConcepts": [
+            "App Router and file-system based routing structure",
+            "Server Components vs. Client Components",
+            "Data fetching patterns (Server actions, ISR, SSR, SSG)",
+            "Next.js optimization features (Images, fonts, script handling, SEO metadata)"
+          ],
+          "resources": [
+            {
+              "name": "Next.js Official Documentation & Learn",
+              "url": "https://nextjs.org/learn",
+              "type": "interactive guide",
+              "duration": "20 hours"
+            },
+            {
+              "name": "Lee Robinson - Next.js tutorials",
+              "url": "https://leerob.io/",
+              "type": "articles & videos",
+              "duration": "Ongoing"
+            }
+          ],
+          "projects": [
+            {
+              "name": "Interactive Roadmap Hub",
+              "description": "Implement a fully dynamic version of the Demon Tech Roadmap using Next.js App Router, loading tracks from static JSON files, showing dynamic progress, and rendering interactive nodes.",
+              "keyDeliverables": [
+                "Clean folder-structure under Next.js App Router",
+                "Static path pre-rendering for optimal performance",
+                "Highly optimized Next.js Images and Font modules"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
