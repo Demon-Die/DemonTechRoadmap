@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ResourceCard } from "../components";
 
 export default function Home() {
   return (
@@ -59,6 +60,43 @@ export default function Home() {
             Documentation
           </a>
         </div>
+        <div className="mt-8 w-full flex flex-col items-center sm:items-start">
+          <a
+            href="https://discord.gg/yWtjK2Tb8T"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 rounded-full bg-indigo-600 px-5 py-3 text-white hover:bg-indigo-700"
+          >
+            Join our Discord
+          </a>
+          <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400 max-w-md">
+            Join the community on Discord to discuss roadmaps, ask questions, and
+            contribute to projects — we'd love to have you!
+          </p>
+        </div>
+        <section className="mt-12 w-full">
+          <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50 mb-6">Learning Resources</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <ResourceCard
+              title="Frontend Roadmap"
+              description="A curated roadmap to learn frontend development: HTML, CSS, JS, and frameworks."
+              href="https://github.com/kamranahmedse/developer-roadmap"
+              tags={["frontend", "roadmap"]}
+            />
+            <ResourceCard
+              title="JavaScript Info"
+              description="Comprehensive guide to modern JavaScript with tutorials and examples."
+              href="https://javascript.info/"
+              tags={["javascript", "tutorial"]}
+            />
+            <ResourceCard
+              title="FreeCodeCamp"
+              description="Interactive coding lessons and projects to build your portfolio."
+              href="https://www.freecodecamp.org/"
+              tags={["practice", "projects"]}
+            />
+          </div>
+        </section>
       </main>
     </div>
   );
