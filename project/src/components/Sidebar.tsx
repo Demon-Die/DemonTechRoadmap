@@ -1,6 +1,8 @@
 "use client";
 
 import { useId, useState } from "react";
+import Badge from "./Badge";
+import Button from "./Button";
 
 export type SidebarItem = {
   id: string;
@@ -46,15 +48,18 @@ export default function Sidebar({
             ) : null}
           </div>
 
-          <button
+          <Button
             type="button"
-            className="inline-flex items-center rounded-full border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-cyan-200 dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-900 lg:hidden"
+            variant="secondary"
+            size="sm"
+            tone="light"
+            className="font-semibold dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-900 lg:hidden"
             aria-expanded={isOpen}
             aria-controls={panelId}
             onClick={() => setIsOpen((current) => !current)}
           >
             {isOpen ? "Hide" : "Show"}
-          </button>
+          </Button>
         </div>
 
         <div id={panelId} className={`${isOpen ? "mt-4" : "mt-4 hidden lg:block"}`}>
@@ -78,15 +83,12 @@ export default function Sidebar({
                 >
                   <span className="font-semibold">{item.label}</span>
                   {typeof item.count === "number" ? (
-                    <span
-                      className={`ml-3 rounded-full px-2.5 py-1 text-xs font-bold ${
-                        isActive
-                          ? "bg-cyan-500 text-white"
-                          : "bg-white text-slate-500 dark:bg-slate-950 dark:text-slate-400"
-                      }`}
+                    <Badge
+                      variant={isActive ? "solid" : "count"}
+                      className="ml-3"
                     >
                       {item.count}
-                    </span>
+                    </Badge>
                   ) : null}
                 </button>
               );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { SearchableResources } from "../components";
+import { Badge, Button, SearchableResources } from "../components";
 
 const roadmapTracks = [
   "Web Development",
@@ -15,36 +15,37 @@ const roadmapSteps = [
   { title: "Build", detail: "Projects and practice" },
   { title: "Grow", detail: "Career-ready skills" },
 ];
+
 export default function Home() {
-  // isDarkMode: true = dark theme (default), false = light theme
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   return (
-
     <main className={`min-h-screen overflow-hidden transition-colors duration-300 ${isDarkMode ? "bg-slate-950 text-white" : "bg-slate-50 text-slate-900"}`}>
-      
-      {/* Toggle button — switches isDarkMode between true and false on click */}
-      <button
+      <Button
+        variant="icon"
         onClick={() => setIsDarkMode(!isDarkMode)}
-        className="fixed right-6 top-6 z-50 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-lg shadow-md backdrop-blur transition hover:scale-105 active:scale-95"
+        className="fixed right-6 top-6 z-50"
         aria-label="Toggle Theme"
       >
         {isDarkMode ? "☀️" : "🌙"}
-      </button>
+      </Button>
 
       <section className="relative isolate flex min-h-screen items-center px-6 py-14 sm:px-10 lg:px-16">
         <div className={`absolute inset-0 -z-20 transition-opacity duration-500 ${
-          isDarkMode 
-            ? "bg-[linear-gradient(135deg,#111827_0%,#0f172a_46%,#0f766e_100%)] opacity-100" 
+          isDarkMode
+            ? "bg-[linear-gradient(135deg,#111827_0%,#0f172a_46%,#0f766e_100%)] opacity-100"
             : "bg-[linear-gradient(135deg,#f8fafc_0%,#e2e8f0_50%,#ccfbf1_100%)] opacity-100"
         }`} />
         <div className={`absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(180deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:96px_96px] ${isDarkMode ? "opacity-30" : "invert opacity-20"}`} />
 
         <div className="mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
-          <div className={`max-w-3xl pt-8 lg:pt-0 transition-colors ${isDarkMode ? "text-white" : "text-slate-900"}`}>
-            <p className={`mb-5 inline-flex rounded-full border px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] shadow-sm backdrop-blur ${isDarkMode ? "border-white/20 bg-white/10 text-cyan-100" : "border-slate-300 bg-slate-200/50 text-teal-800"}`}>
+          <div className={`max-w-3xl pt-8 transition-colors lg:pt-0 ${isDarkMode ? "text-white" : "text-slate-900"}`}>
+            <Badge
+              variant="hero"
+              className={`mb-5 px-4 py-2 text-sm uppercase tracking-[0.18em] shadow-sm ${isDarkMode ? "border-white/20 bg-white/10 text-cyan-100" : "border-slate-300 bg-slate-200/50 text-teal-800"}`}
+            >
               Open-source learning paths
-            </p>
+            </Badge>
             <h1 className="text-balance text-5xl font-bold leading-[1.04] tracking-normal sm:text-6xl lg:text-7xl">
               Demon Tech Roadmap
             </h1>
@@ -54,20 +55,20 @@ export default function Home() {
             </p>
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <a
-                href="#roadmaps"
-                className="inline-flex min-h-12 items-center justify-center rounded-md bg-cyan-400 px-6 py-3 text-base font-bold text-slate-950 shadow-lg shadow-cyan-950/20 transition hover:bg-cyan-300 focus:outline-none focus:ring-4 focus:ring-cyan-200/70"
-              >
+              <Button as="a" href="#roadmaps">
                 Explore Roadmaps
-              </a>
-              <a
+              </Button>
+              <Button
+                as="a"
+                variant="secondary"
+                tone={isDarkMode ? "dark" : "light"}
                 href="https://github.com/Demon-Die/DemonTechRoadmap"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex min-h-12 items-center justify-center rounded-md border px-6 py-3 text-base font-bold backdrop-blur transition focus:outline-none focus:ring-4 ${isDarkMode ? "border-white/30 bg-white/10 text-white hover:bg-white/20 focus:ring-white/30" : "border-slate-300 bg-slate-200/30 text-slate-900 hover:bg-slate-200/60 focus:ring-slate-400/30"}`}
+                className={isDarkMode ? "" : "border-slate-300 bg-slate-200/30 text-slate-900 hover:bg-slate-200/60 focus:ring-slate-400/30"}
               >
                 Contribute on GitHub
-              </a>
+              </Button>
             </div>
 
             <div
@@ -75,12 +76,13 @@ export default function Home() {
               className="mt-10 flex flex-wrap gap-3 text-sm font-semibold"
             >
               {roadmapTracks.map((track) => (
-                <span
+                <Badge
                   key={track}
-                  className={`rounded-full border px-4 py-2 backdrop-blur ${isDarkMode ? "border-white/20 bg-white/10 text-slate-100" : "border-slate-300 bg-slate-200/40 text-slate-700"}`}
+                  variant="hero"
+                  className={`px-4 py-2 text-sm font-semibold ${isDarkMode ? "border-white/20 bg-white/10 text-slate-100" : "border-slate-300 bg-slate-200/40 text-slate-700"}`}
                 >
                   {track}
-                </span>
+                </Badge>
               ))}
             </div>
           </div>
@@ -132,7 +134,7 @@ export default function Home() {
                 (item) => (
                   <div
                     key={item}
-                    className={`rounded-md border px-4 py-3 text-sm font-bold text-center sm:text-left ${isDarkMode ? "border-slate-800 bg-slate-950/30 text-slate-300" : "border-slate-200 bg-white text-slate-700"}`}
+                    className={`rounded-md border px-4 py-3 text-center text-sm font-bold sm:text-left ${isDarkMode ? "border-slate-800 bg-slate-950/30 text-slate-300" : "border-slate-200 bg-white text-slate-700"}`}
                   >
                     {item}
                   </div>
@@ -154,12 +156,11 @@ export default function Home() {
             >
               Join our Discord
             </a>
-            <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400 max-w-md">
-            </p>
+            <p className="mt-3 max-w-md text-sm text-zinc-600 dark:text-zinc-400" />
           </div>
 
           <section className="mt-12 w-full">
-            <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50 mb-6">
+            <h2 className="mb-6 text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
               Learning Resources
             </h2>
             <SearchableResources />

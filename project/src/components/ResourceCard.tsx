@@ -1,4 +1,5 @@
 import React from "react";
+import Badge from "./Badge";
 
 type ResourceCardProps = {
   title: string;
@@ -27,12 +28,7 @@ export default function ResourceCard({
       {tags && tags.length > 0 && (
         <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((t) => (
-            <span
-              key={t}
-              className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300"
-            >
-              {t}
-            </span>
+            <Badge key={t}>{t}</Badge>
           ))}
         </div>
       )}
