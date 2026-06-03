@@ -13,8 +13,8 @@ const sidebarGroups = [
   {
     title: "Get Started",
     items: [
-      { label: "Introduction", icon: "home", href: "/", active: true },
-      { label: "Quick Start", icon: "bolt", href: "/docs/quick-start" },
+      { label: "Introduction", icon: "home", href: "/" },
+      { label: "Quick Start", icon: "bolt", href: "/docs/quick-start", active: true },
       { label: "How Roadmaps Work", icon: "route", href: "/docs/how-roadmaps-work" },
       { label: "Learning Paths", icon: "nodes" },
     ],
@@ -47,29 +47,55 @@ const sidebarGroups = [
   },
 ];
 
-const introFeatures = [
+const quickFeatures = [
   {
-    title: "Structured Learning",
-    detail: "Follow clear paths that turn scattered tutorials into focused skill growth.",
-    icon: "map",
-  },
-  {
-    title: "Practical Projects",
-    detail: "Build real portfolio work as you learn, not after you finish learning.",
+    title: "See Code Examples",
+    detail: "Every concept comes with practical code examples you can run and understand.",
     icon: "code",
   },
   {
-    title: "Community Support",
-    detail: "Join learners, ask questions, share progress, and keep momentum.",
-    icon: "users",
+    title: "Edit & Experiment",
+    detail: "Edit the code directly in the documentation and see your changes in real-time.",
+    icon: "pen",
+  },
+  {
+    title: "Learn by Doing",
+    detail: "The best way to learn is by doing. Modify, experiment and master by building.",
+    icon: "eye",
   },
 ];
 
-const steps = [
-  "Pick the roadmap that matches your goal and current level.",
-  "Follow curated resources in order, without guessing what comes next.",
-  "Build projects after each major topic to turn knowledge into proof.",
-  "Track progress, ask for feedback, and keep leveling up with the community.",
+const interactiveFeatures = [
+  {
+    title: "Practical Examples",
+    detail: "Real-world examples you can understand and use.",
+    icon: "window",
+  },
+  {
+    title: "Edit & Learn",
+    detail: "Modify the code and learn by experimenting.",
+    icon: "pen",
+  },
+  {
+    title: "Instant Feedback",
+    detail: "See results instantly and grasp concepts faster.",
+    icon: "rocket",
+  },
+];
+
+const codeLines = [
+  "<!DOCTYPE html>",
+  '<html lang="en">',
+  "<head>",
+  '  <meta charset="UTF-8" />',
+  "  <title>Hello DemonTech</title>",
+  '  <link rel="stylesheet" href="style.css" />',
+  "</head>",
+  "<body>",
+  "  <h1>Hello, DemonTech!</h1>",
+  "  <p>Start your journey to become a better developer.</p>",
+  "</body>",
+  "</html>",
 ];
 
 const iconPaths: Record<string, ReactNode> = {
@@ -89,9 +115,12 @@ const iconPaths: Record<string, ReactNode> = {
   target: <path d="M21 12a9 9 0 1 1-9-9m6 3 3-3m0 0v5m0-5h-5M15 9l-3 3m3 0a3 3 0 1 1-3-3" />,
   search: <path d="m21 21-4.3-4.3M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z" />,
   code: <path d="m8 9-4 3 4 3m8-6 4 3-4 3m-2-10-4 14" />,
-  users: <path d="M16 19a4 4 0 0 0-8 0M12 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm7 8a3.5 3.5 0 0 0-3-3.45M17 8.5a2.5 2.5 0 0 1 0 5M5 19a3.5 3.5 0 0 1 3-3.45M7 8.5a2.5 2.5 0 0 0 0 5" />,
-  map: <path d="m4 6 5-2 6 2 5-2v14l-5 2-6-2-5 2V6Zm5-2v14m6-12v14" />,
   pen: <path d="m4 20 4.5-1 11-11a2.1 2.1 0 0 0-3-3l-11 11L4 20Zm13-15 3 3" />,
+  eye: <path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Zm12 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />,
+  window: <path d="M4 5h16v14H4V5Zm0 4h16m-9 4-2 2 2 2m3-4 2 2-2 2" />,
+  rocket: <path d="M14 4c3.5.4 5.6 2.5 6 6l-4 4-5-5 4-5Zm-7 8-3 3 5 5 3-3m-5-5 5 5m-7 1-2 2m9-17 5 5" />,
+  reset: <path d="M20 6v6h-6M4 18v-6h6m9-1a7 7 0 0 0-12.1-4M5 13a7 7 0 0 0 12.1 4" />,
+  copy: <path d="M8 8h12v12H8V8Zm-4 8V4h12" />,
   discord: <path d="M8 16c1.5 1 6.5 1 8 0m-9-3h.01M17 13h.01M7 8c3-1.5 7-1.5 10 0l1 7c-1.5 1-3 1.5-4.5 1.8L12 15l-1.5 1.8C9 16.5 7.5 16 6 15l1-7Z" />,
   sun: <path d="M12 4V2m0 20v-2m8-8h2M2 12h2m14.36-6.36 1.42-1.42M4.22 19.78l1.42-1.42m0-12.72L4.22 4.22m15.56 15.56-1.42-1.42M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z" />,
   moon: <path d="M21 14.5A7.5 7.5 0 0 1 9.5 3a8.7 8.7 0 1 0 11.5 11.5Z" />,
@@ -167,8 +196,9 @@ function DemonTechLogo() {
   );
 }
 
-export default function Introduction() {
+export default function QuickStart() {
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [activeTab, setActiveTab] = useState("HTML");
   const theme = isDarkMode ? darkTheme : lightTheme;
 
   return (
@@ -271,6 +301,24 @@ export default function Introduction() {
                 </section>
               ))}
             </div>
+
+            <div className="mt-7 rounded-md border border-red-500/30 bg-red-950/15 p-4">
+              <h3 className="text-sm font-bold text-[var(--text-primary)]">
+                Improve this docs
+              </h3>
+              <p className="mt-2 text-xs leading-5 text-[var(--text-muted)]">
+                Found a mistake or have suggestions? Help us make our docs better.
+              </p>
+              <a
+                className="mt-3 flex h-9 items-center justify-between rounded-md border border-[var(--border)] bg-[var(--panel-strong)] px-3 text-xs font-bold text-[var(--text-secondary)]"
+                href="https://github.com/Demon-Die/DemonTechRoadmap"
+                rel="noreferrer"
+                target="_blank"
+              >
+                Edit this page
+                <Icon className="h-3.5 w-3.5 text-red-500" name="pen" />
+              </a>
+            </div>
           </div>
         </aside>
 
@@ -283,28 +331,26 @@ export default function Introduction() {
               <span>Get Started</span>
               <Icon className="h-3 w-3" name="chevron" />
               <span className="font-semibold text-[var(--text-primary)]">
-                Introduction
+                Quick Start
               </span>
             </div>
 
-            <div className="mt-8 grid gap-10 xl:grid-cols-[0.95fr_1.05fr]">
+            <div className="mt-8 grid gap-10 xl:grid-cols-[0.84fr_1.35fr]">
               <section>
                 <div className="inline-flex rounded-full border border-red-500/35 bg-red-950/30 px-4 py-1.5 text-xs font-black uppercase tracking-[0.14em] text-red-400">
                   Get Started
                 </div>
                 <h1 className="mt-5 text-5xl font-black tracking-normal text-[var(--text-primary)]">
-                  Welcome to DemonTech Documentation
+                  Quick Start
                 </h1>
-                <p className="mt-6 max-w-2xl text-sm leading-7 text-[var(--text-secondary)]">
-                  DemonTech Roadmap is an open-source learning platform for
-                  developers and tech enthusiasts. Learn through structured
-                  roadmaps, curated resources, community support, and projects
-                  that make your skills visible.
+                <p className="mt-6 max-w-xl text-sm leading-7 text-[var(--text-secondary)]">
+                  Get up and running with DemonTech Roadmap in just a few minutes.
+                  Follow these simple steps to start your learning journey.
                 </p>
                 <div className="mt-8 h-px bg-[var(--border)]" />
 
                 <div className="mt-9 space-y-8">
-                  {introFeatures.map((feature) => (
+                  {quickFeatures.map((feature) => (
                     <article
                       className="grid grid-cols-[58px_1fr] gap-6"
                       key={feature.title}
@@ -325,66 +371,110 @@ export default function Introduction() {
                 </div>
               </section>
 
-              <section className="rounded-lg border border-[var(--border)] bg-[var(--panel-bg)] p-7 shadow-2xl shadow-[var(--shadow)] ring-1 ring-red-500/30">
-                <div className="flex items-center gap-3">
-                  <Icon className="h-5 w-5 text-red-500" name="spark" />
-                  <h2 className="text-xl font-black text-[var(--text-primary)]">
-                    How DemonTech Works
-                  </h2>
+              <section className="overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--panel-bg)] shadow-2xl shadow-[var(--shadow)] ring-1 ring-red-500/30">
+                <div className="flex items-center justify-between gap-4 border-b border-[var(--border)] px-6 py-5">
+                  <div className="flex items-center gap-3">
+                    <Icon className="h-5 w-5 text-red-500" name="code" />
+                    <h2 className="text-base font-bold text-[var(--text-primary)]">
+                      Example: Hello DemonTech
+                    </h2>
+                  </div>
                 </div>
-                <p className="mt-4 text-sm leading-7 text-[var(--text-secondary)]">
-                  The roadmap system is designed to remove confusion from
-                  self-learning. Each path gives you a sequence, resources,
-                  projects, and a way to keep moving with confidence.
-                </p>
 
-                <div className="mt-7 space-y-4">
-                  {steps.map((step, index) => (
-                    <div
-                      className="flex min-h-12 items-center gap-4 rounded-md border border-[var(--border)] bg-[var(--panel-strong)] px-4 text-sm text-[var(--text-secondary)]"
-                      key={step}
-                    >
-                      <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-red-600 text-xs font-black text-white">
-                        {index + 1}
-                      </span>
-                      {step}
+                <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[var(--border)] px-6">
+                  <div className="flex gap-8">
+                    {["HTML", "CSS", "JavaScript"].map((tab) => (
+                      <button
+                        className={`relative h-14 text-sm font-bold transition ${
+                          activeTab === tab
+                            ? "text-red-500"
+                            : "text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+                        }`}
+                        key={tab}
+                        onClick={() => setActiveTab(tab)}
+                        type="button"
+                      >
+                        {tab}
+                        {activeTab === tab && (
+                          <span className="absolute bottom-0 left-0 h-0.5 w-full bg-red-500" />
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="flex gap-3 py-3">
+                    <button className="flex h-9 items-center gap-2 rounded-md border border-[var(--border)] bg-[var(--panel-strong)] px-4 text-xs text-[var(--text-secondary)]" type="button">
+                      <Icon className="h-4 w-4" name="reset" />
+                      Reset
+                    </button>
+                    <button className="flex h-9 items-center gap-2 rounded-md bg-red-600 px-4 text-xs font-bold text-white shadow-lg shadow-red-950/30" type="button">
+                      <Icon className="h-4 w-4" name="copy" />
+                      Copy
+                    </button>
+                  </div>
+                </div>
+
+                <div className="grid min-h-[390px] lg:grid-cols-[1fr_0.9fr]">
+                  <div className="border-b border-[var(--border)] p-6 font-mono text-sm leading-7 lg:border-b-0 lg:border-r">
+                    {codeLines.map((line, index) => (
+                      <div className="grid grid-cols-[28px_1fr] gap-5" key={`${line}-${index}`}>
+                        <span className="text-right text-[var(--text-muted)]">
+                          {index + 1}
+                        </span>
+                        <code className="whitespace-pre-wrap text-[var(--text-secondary)]">
+                          {line}
+                        </code>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="relative min-h-[320px] overflow-hidden p-8">
+                    <div className="absolute inset-x-0 bottom-0 h-32 bg-[radial-gradient(circle_at_72%_100%,rgba(220,38,38,0.34),transparent_52%)]" />
+                    <p className="relative text-xs font-black uppercase tracking-[0.14em] text-[var(--text-muted)]">
+                      Live Preview
+                    </p>
+                    <div className="relative mt-12">
+                      <h3 className="text-3xl font-black text-[var(--text-primary)]">
+                        Hello, DemonTech!
+                      </h3>
+                      <p className="mt-7 max-w-sm text-lg leading-8 text-[var(--text-secondary)]">
+                        Start your journey to become a better developer.
+                      </p>
                     </div>
-                  ))}
+                  </div>
+                </div>
+
+                <div className="border-t border-[var(--border)] px-6 py-4 text-sm text-[var(--text-muted)]">
+                  <span className="font-bold text-red-500">Tip:</span> Edit the
+                  code on the left and see the changes in real-time.
                 </div>
               </section>
             </div>
 
             <section className="mt-8 grid gap-8 rounded-lg border border-[var(--border)] bg-[var(--panel-bg)] p-8 shadow-2xl shadow-[var(--shadow)] lg:grid-cols-[1fr_2fr]">
               <div className="flex gap-5">
-                <Icon className="mt-1 h-9 w-9 shrink-0 text-red-500" name="target" />
+                <Icon className="mt-1 h-9 w-9 shrink-0 text-red-500" name="spark" />
                 <div>
                   <h2 className="text-xl font-black text-[var(--text-primary)]">
-                    Who Is This For?
+                    Why Interactive Docs?
                   </h2>
                   <p className="mt-5 text-sm leading-7 text-[var(--text-secondary)]">
-                    Beginners, students, self-taught developers, and builders who
-                    want a practical path from first concepts to real projects.
+                    We believe in hands-on learning. That&apos;s why our
+                    documentation is interactive, editable, and beginner-friendly.
                   </p>
                 </div>
               </div>
 
               <div className="grid gap-6 border-t border-[var(--border)] pt-7 sm:grid-cols-3 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
-                {["Choose a path", "Build projects", "Grow with feedback"].map(
-                  (item, index) => (
-                    <article className="text-center" key={item}>
-                      <span className="mx-auto grid h-11 w-11 place-items-center rounded-md border border-red-500/30 bg-red-950/10 text-sm font-black text-red-500">
-                        {index + 1}
-                      </span>
-                      <h3 className="mt-5 text-sm font-black text-[var(--text-primary)]">
-                        {item}
-                      </h3>
-                      <p className="mx-auto mt-3 max-w-[180px] text-sm leading-6 text-[var(--text-muted)]">
-                        Learn in order, practice consistently, and turn progress
-                        into proof.
-                      </p>
-                    </article>
-                  ),
-                )}
+                {interactiveFeatures.map((feature) => (
+                  <article className="text-center" key={feature.title}>
+                    <Icon className="mx-auto h-9 w-9 text-red-500" name={feature.icon} />
+                    <h3 className="mt-5 text-sm font-black text-[var(--text-primary)]">
+                      {feature.title}
+                    </h3>
+                    <p className="mx-auto mt-3 max-w-[180px] text-sm leading-6 text-[var(--text-muted)]">
+                      {feature.detail}
+                    </p>
+                  </article>
+                ))}
               </div>
             </section>
 
