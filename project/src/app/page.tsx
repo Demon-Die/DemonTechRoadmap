@@ -26,8 +26,8 @@ const sidebarGroups: SidebarGroup[] = [
   {
     title: "Browse",
     items: [
-      { label: "All Roadmaps", icon: "grid" },
-      { label: "By Category", icon: "folder" },
+      { label: "All Roadmaps", icon: "grid", href: "/docs/all-roadmaps" },
+      { label: "By Category", icon: "folder", href: "/docs/by-category" },
       { label: "Learning Resources", icon: "send" },
       { label: "Project Ideas", icon: "spark" },
     ],

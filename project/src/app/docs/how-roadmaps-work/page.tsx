@@ -31,8 +31,8 @@ const sidebarGroups: SidebarGroup[] = [
   {
     title: "Browse",
     items: [
-      { label: "All Roadmaps", icon: "grid" },
-      { label: "By Category", icon: "folder" },
+      { label: "All Roadmaps", icon: "grid", href: "/docs/all-roadmaps" },
+      { label: "By Category", icon: "folder", href: "/docs/by-category" },
       { label: "Learning Resources", icon: "send" },
       { label: "Project Ideas", icon: "spark" },
     ],
@@ -343,13 +343,13 @@ export default function HowRoadmapsWork() {
             </div>
 
             <section className="relative mt-8 overflow-hidden rounded-xl border border-[var(--border)] bg-[linear-gradient(135deg,rgba(14,14,16,0.96),rgba(12,12,13,0.72))] p-6 sm:p-8">
-              <div className="absolute inset-y-0 right-0 hidden w-[62%] overflow-hidden lg:block">
+              <div className="absolute inset-y-0 right-0 hidden w-[54%] overflow-hidden lg:block">
                 <Image
                   alt="DemonTech roadmap mountain path"
-                  className="h-full w-full object-cover object-center opacity-95"
+                  className="h-full w-full object-cover object-[center_42%] opacity-95"
                   fill
                   priority
-                  sizes="62vw"
+                  sizes="54vw"
                   src="/roadmap-journey-bg.png"
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,14,16,0.98)_0%,rgba(14,14,16,0.72)_16%,rgba(14,14,16,0.18)_46%,rgba(14,14,16,0)_100%)]" />

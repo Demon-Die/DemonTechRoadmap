@@ -20,14 +20,14 @@ const sidebarGroups: SidebarGroup[] = [
       { label: "Introduction", icon: "home", href: "/" },
       { label: "Quick Start", icon: "bolt", href: "/docs/quick-start" },
       { label: "How Roadmaps Work", icon: "route", href: "/docs/how-roadmaps-work" },
-      { label: "Learning Paths", icon: "nodes", href: "/docs/learning-paths", active: true },
+      { label: "Learning Paths", icon: "nodes", href: "/docs/learning-paths" },
     ],
   },
   {
     title: "Browse",
     items: [
       { label: "All Roadmaps", icon: "grid", href: "/docs/all-roadmaps" },
-      { label: "By Category", icon: "folder", href: "/docs/by-category" },
+      { label: "By Category", icon: "folder", href: "/docs/by-category", active: true },
       { label: "Learning Resources", icon: "send" },
       { label: "Project Ideas", icon: "spark" },
     ],
@@ -43,94 +43,100 @@ const sidebarGroups: SidebarGroup[] = [
   },
 ];
 
-const heroFeatures = [
-  {
-    title: "Step-by-Step Learning",
-    detail: "Learn in a structured order from fundamentals to advanced topics.",
-    icon: "book",
-  },
-  {
-    title: "Goal-Oriented Tracks",
-    detail: "Choose paths based on your goals and career aspirations.",
-    icon: "target",
-  },
-  {
-    title: "Real Project Experience",
-    detail: "Build real-world projects and gain practical, job-ready skills.",
-    icon: "rocket",
-  },
-  {
-    title: "Progress Milestones",
-    detail: "Track your progress and celebrate milestones along the way.",
-    icon: "trophy",
-  },
+const categoryStats = [
+  ["folder", "10+", "Categories"],
+  ["book", "20+", "Roadmaps"],
+  ["users", "50K+", "Developers Learning"],
+  ["refresh", "Weekly", "Updates"],
 ];
 
-const learningPaths = [
+const developmentCategories = [
   {
-    title: "Frontend Path",
-    detail: "Master the art of building beautiful user interfaces.",
-    icon: "paint",
-    steps: [
-      "UI Design Fundamentals",
-      "HTML & CSS",
-      "JavaScript",
-      "React",
-      "Next.js",
-      "Frontend Projects",
-      "Frontend Mastery",
-    ],
-  },
-  {
-    title: "Backend Path",
-    detail: "Build powerful APIs and robust server-side applications.",
-    icon: "gear",
-    steps: [
-      "Programming Basics",
-      "Node.js",
-      "Express",
-      "Databases",
-      "Authentication",
-      "API Development",
-      "Backend Mastery",
-    ],
-  },
-  {
-    title: "Full Stack Path",
-    detail: "Learn both frontend and backend to become a complete developer.",
-    icon: "layers",
-    steps: [
-      "Frontend Fundamentals",
-      "Backend Fundamentals",
-      "Databases",
-      "Authentication",
-      "Deployment",
-      "Full Stack Projects",
-      "Full Stack Mastery",
-    ],
-  },
-];
-
-const processSteps = [
-  {
-    title: "Choose Your Goal",
-    detail: "Select the role you want to become and the path that aligns with your goals.",
-    icon: "target",
-  },
-  {
-    title: "Follow the Path",
-    detail: "Complete skills in the recommended order and track your progress.",
-    icon: "book",
-  },
-  {
-    title: "Build Projects",
-    detail: "Apply every concept through real-world projects and build an impressive portfolio.",
+    title: "Frontend Development",
+    detail: "HTML, CSS, JavaScript, React, Next.js and more.",
+    count: "5",
     icon: "code",
   },
   {
-    title: "Achieve Mastery",
-    detail: "Complete the path, earn mastery, and level up your developer journey.",
-    icon: "trophy",
+    title: "Backend Development",
+    detail: "Node.js, Python, APIs, Databases and more.",
+    count: "5",
+    icon: "server",
+  },
+  {
+    title: "Full Stack Development",
+    detail: "Complete full stack roadmaps from start to finish.",
+    count: "4",
+    icon: "layers",
+  },
+  {
+    title: "Mobile Development",
+    detail: "React Native, Flutter, iOS, Android and more.",
+    count: "4",
+    icon: "phone",
+  },
+  {
+    title: "DevOps",
+    detail: "CI/CD, Docker, Kubernetes, AWS and more.",
+    count: "3",
+    icon: "infinity",
+  },
+  {
+    title: "Data Science",
+    detail: "Python, ML, Data Analysis, Deep Learning and more.",
+    count: "4",
+    icon: "chart",
+  },
+];
+
+const otherCategories = [
+  {
+    title: "Cloud Computing",
+    detail: "AWS, Azure, GCP and cloud fundamentals.",
+    count: "3",
+    icon: "cloud",
+  },
+  {
+    title: "Cybersecurity",
+    detail: "Ethical Hacking, Security Tools and more.",
+    count: "3",
+    icon: "shield",
+  },
+  {
+    title: "AI & Machine Learning",
+    detail: "AI, ML, NLP, Computer Vision and more.",
+    count: "3",
+    icon: "brain",
+  },
+  {
+    title: "Game Development",
+    detail: "Unity, Unreal, C++, Game Design and more.",
+    count: "2",
+    icon: "game",
+  },
+  {
+    title: "Blockchain",
+    detail: "Web3, Solidity, NFTs, Blockchain Dev and more.",
+    count: "2",
+    icon: "cube",
+  },
+  {
+    title: "UI/UX Design",
+    detail: "Figma, Design Principles, UI/UX and more.",
+    count: "2",
+    icon: "paint",
+  },
+  {
+    title: "Programming Languages",
+    detail: "Python, Java, C++, Go, Rust and more.",
+    count: "4",
+    icon: "code",
+  },
+  {
+    title: "Tooling & Others",
+    detail: "Git, Linux, Vim, Bash and more.",
+    count: "3",
+    icon: "tools",
   },
 ];
 
@@ -160,6 +166,21 @@ const iconPaths: Record<string, ReactNode> = {
   layers: <path d="m12 3 9 5-9 5-9-5 9-5Zm-7 9 7 4 7-4M5 16l7 4 7-4" />,
   code: <path d="m8 9-4 3 4 3m8-6 4 3-4 3m-2-10-4 14" />,
   pen: <path d="m4 20 4.5-1 11-11a2.1 2.1 0 0 0-3-3l-11 11L4 20Zm13-15 3 3" />,
+  user: <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 9a7 7 0 0 1 14 0" />,
+  users: <path d="M10 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 9a7 7 0 0 1 14 0m1-10a3 3 0 1 0 0-6m-1 15a5.5 5.5 0 0 1 5-3.5" />,
+  refresh: <path d="M20 7v5h-5M4 17v-5h5m10-1a7 7 0 0 0-12-4l-3 3m1 3a7 7 0 0 0 12 4l3-3" />,
+  star: <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 18.2 6.4 21.2 7.5 15 3 10.6l6.2-.9L12 3Z" />,
+  flame: <path d="M12 22c4 0 7-2.8 7-6.8 0-3.2-2.1-5.1-4.2-7.1-.9-.8-1.5-2-1.5-3.4C10 6.4 7 9.4 7 13c0 1.2.4 2.2 1 3-1.4-.5-2.3-1.7-2.7-3C4.5 14.1 4 15.3 4 16.5 4 19.7 7 22 12 22Z" />,
+  server: <path d="M4 4h16v6H4V4Zm0 10h16v6H4v-6Zm4-7h.01M8 17h.01M12 7h6m-6 10h6" />,
+  phone: <path d="M8 2h8a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm3 17h2" />,
+  infinity: <path d="M7 8c2.5 0 3.5 4 5 4s2.5-4 5-4a4 4 0 1 1 0 8c-2.5 0-3.5-4-5-4s-2.5 4-5 4a4 4 0 1 1 0-8Z" />,
+  chart: <path d="M4 20h16M7 16V9m5 7V4m5 12v-5" />,
+  cloud: <path d="M7 18h10a4 4 0 0 0 0-8 6 6 0 0 0-11.5 2A3 3 0 0 0 7 18Z" />,
+  shield: <path d="M12 3 20 6v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6l8-3Zm-3 9 2 2 4-5" />,
+  brain: <path d="M9 4a3 3 0 0 0-3 3v1a3 3 0 0 0 0 6v1a3 3 0 0 0 6 0V7a3 3 0 0 0-3-3Zm6 0a3 3 0 0 1 3 3v1a3 3 0 0 1 0 6v1a3 3 0 0 1-6 0V7a3 3 0 0 1 3-3Z" />,
+  game: <path d="M7 10h10a5 5 0 0 1 4 7l-.5 1a2 2 0 0 1-3 .6L15 16H9l-2.5 2.6a2 2 0 0 1-3-.6L3 17a5 5 0 0 1 4-7Zm1 3v2m-1-1h2m7-.5h.01M18 15h.01" />,
+  cube: <path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Zm0 9 8-4.5M12 12 4 7.5m8 4.5v9" />,
+  tools: <path d="m14 7 3-3 3 3-3 3-3-3ZM4 20l7-7m2 2 5 5M5 5l4 4m-1-5 1 5-5-1" />,
 };
 
 const darkTheme: ThemeVars = {
@@ -229,7 +250,7 @@ function DemonTechLogo() {
   );
 }
 
-export default function LearningPaths() {
+export default function AllRoadmaps() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const theme = isDarkMode ? darkTheme : lightTheme;
 
@@ -253,13 +274,13 @@ export default function LearningPaths() {
             {navItems.map((item) => (
               <a
                 className={`relative transition hover:text-red-500 ${
-                  item === "Docs" ? "text-red-500" : ""
+                  item === "Roadmaps" ? "text-red-500" : ""
                 }`}
                 href="#"
                 key={item}
               >
                 {item}
-                {item === "Docs" && (
+                {item === "Roadmaps" && (
                   <span className="absolute -bottom-[30px] left-1/2 h-0.5 w-16 -translate-x-1/2 rounded-full bg-red-500 shadow-[0_0_18px_rgba(239,68,68,0.8)]" />
                 )}
               </a>
@@ -346,177 +367,132 @@ export default function LearningPaths() {
               <span>Home</span>
               <Icon className="h-3 w-3" name="chevron" />
               <span className="font-semibold text-[var(--text-primary)]">
-                Learning Paths
+                By Category
               </span>
             </div>
 
-            <section className="relative mt-8 overflow-hidden rounded-xl border border-[var(--border)] bg-[linear-gradient(135deg,rgba(14,14,16,0.96),rgba(12,12,13,0.72))] p-6 sm:p-8">
-              <div className="relative z-10 grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_320px] xl:grid-cols-[minmax(0,1fr)_360px]">
-                <div className="max-w-xl">
-                  <div className="inline-flex items-center gap-2 rounded-md border border-red-500/35 bg-red-950/20 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-red-400">
-                    <Icon className="h-4 w-4" name="bolt" />
-                    Structured Learning Tracks
-                  </div>
-                  <h1 className="mt-6 text-5xl font-black tracking-normal text-white sm:text-6xl">
-                    Learning Paths
-                  </h1>
-                  <p className="mt-6 text-lg leading-8 text-slate-300">
-                    Choose a guided path tailored to your goals. Follow a curated
-                    sequence of skills, projects, and milestones designed to take
-                    you from beginner to mastery.
-                  </p>
-                </div>
-
-                <div className="hidden rounded-xl border border-red-500/20 bg-[linear-gradient(145deg,rgba(18,18,20,0.92),rgba(6,6,7,0.96))] p-5 shadow-[0_24px_80px_rgba(127,29,29,0.16)] lg:block">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-xs font-black uppercase tracking-[0.14em] text-red-300">
-                        Track
-                      </p>
-                      <h2 className="mt-2 text-2xl font-black text-white">
-                        From basics to mastery
-                      </h2>
-                    </div>
-                    <span className="grid h-14 w-14 place-items-center rounded-md border border-red-500/30 bg-red-950/35 text-red-300">
-                      <Icon className="h-8 w-8" name="trophy" />
-                    </span>
-                  </div>
-
-                  <div className="mt-7 space-y-4">
-                    {[
-                      ["Fundamentals", "28%"],
-                      ["Projects", "64%"],
-                      ["Mastery", "92%"],
-                    ].map(([label, width]) => (
-                      <div key={label}>
-                        <div className="mb-2 flex items-center justify-between text-xs font-bold">
-                          <span className="text-slate-300">{label}</span>
-                          <span className="text-red-300">{width}</span>
-                        </div>
-                        <div className="h-2 rounded-full bg-white/10">
-                          <div
-                            className="h-full rounded-full bg-gradient-to-r from-red-700 to-red-400 shadow-[0_0_18px_rgba(239,68,68,0.42)]"
-                            style={{ width }}
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-7 grid grid-cols-3 gap-3">
-                    {[
-                      ["book", "Learn"],
-                      ["code", "Build"],
-                      ["target", "Grow"],
-                    ].map(([icon, label]) => (
-                      <div
-                        className="rounded-lg border border-[var(--border)] bg-black/45 p-3 text-center"
-                        key={label}
-                      >
-                        <Icon className="mx-auto h-5 w-5 text-red-300" name={icon} />
-                        <p className="mt-2 text-xs font-bold text-slate-300">
-                          {label}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+            <section className="mt-8">
+              <div className="inline-flex items-center gap-2 rounded-md border border-red-500/30 bg-red-950/20 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-red-400">
+                <Icon className="h-4 w-4" name="flame" />
+                Browse Roadmaps By Category
               </div>
+              <h1 className="mt-5 text-5xl font-black tracking-normal text-[var(--text-primary)] sm:text-6xl">
+                By Category
+              </h1>
+              <div className="mt-2 h-1 w-64 rounded-full bg-[linear-gradient(90deg,#ef4444,rgba(239,68,68,0))]" />
+              <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--text-secondary)]">
+                Find the perfect roadmap for your goals. Browse by category
+                and kickstart your learning journey.
+              </p>
+            </section>
 
-              <div className="relative z-10 mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-                {heroFeatures.map((feature) => (
-                  <article
-                    className="rounded-xl border border-[var(--border)] bg-black/70 p-5 shadow-[0_18px_55px_rgba(0,0,0,0.38)] backdrop-blur"
-                    key={feature.title}
-                  >
-                    <span className="grid h-12 w-12 place-items-center rounded-md border border-red-500/25 bg-red-950/35 text-red-400">
-                      <Icon className="h-7 w-7" name={feature.icon} />
+            <section className="mt-9 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+              {categoryStats.map(([icon, value, label]) => (
+                <article
+                  className="flex items-center gap-5 rounded-lg border border-[var(--border)] bg-[var(--panel-strong)] p-6"
+                  key={label}
+                >
+                  <span className="grid h-12 w-12 place-items-center rounded-md border border-red-500/20 bg-red-950/25 text-red-500">
+                    <Icon className="h-7 w-7" name={icon} />
+                  </span>
+                  <span>
+                    <span className="block text-2xl font-black text-[var(--text-primary)]">
+                      {value}
                     </span>
-                    <h2 className="mt-4 text-sm font-black text-white">
-                      {feature.title}
+                    <span className="mt-1 block text-sm text-[var(--text-secondary)]">
+                      {label}
+                    </span>
+                  </span>
+                </article>
+              ))}
+            </section>
+
+            <section className="mt-9">
+              <h2 className="border-l-4 border-red-500 pl-4 text-2xl font-black text-[var(--text-primary)]">
+                Development
+              </h2>
+              <div className="mt-6 grid gap-4 xl:grid-cols-2">
+                {developmentCategories.map((category) => (
+                  <article
+                    className="group grid items-center gap-5 rounded-lg border border-[var(--border)] bg-[var(--panel-strong)] p-5 transition hover:border-red-500/45 hover:shadow-[0_20px_60px_rgba(127,29,29,0.18)] sm:grid-cols-[64px_1fr_86px_24px]"
+                    key={category.title}
+                  >
+                    <span className="grid h-14 w-14 place-items-center rounded-md border border-red-500/25 bg-red-950/25 text-red-500">
+                      <Icon className="h-8 w-8" name={category.icon} />
+                    </span>
+                    <span>
+                      <span className="block font-black text-[var(--text-primary)]">
+                        {category.title}
+                      </span>
+                      <span className="mt-2 block text-sm leading-6 text-[var(--text-secondary)]">
+                        {category.detail}
+                      </span>
+                    </span>
+                    <span className="border-[var(--border)] text-sm text-[var(--text-secondary)] sm:border-l sm:pl-5">
+                      <span className="block text-lg font-black text-[var(--text-primary)]">
+                        {category.count}
+                      </span>
+                      Roadmaps
+                    </span>
+                    <Icon className="h-5 w-5 text-red-500 transition group-hover:translate-x-1" name="chevron" />
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="mt-9">
+              <h2 className="border-l-4 border-red-500 pl-4 text-2xl font-black text-[var(--text-primary)]">
+                Other Categories
+              </h2>
+              <div className="mt-6 grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
+                {otherCategories.map((category) => (
+                  <article
+                    className="grid items-center gap-4 rounded-lg border border-[var(--border)] bg-[var(--panel-strong)] p-4 transition hover:border-red-500/45 sm:grid-cols-[52px_1fr_70px]"
+                    key={category.title}
+                  >
+                    <span className="grid h-12 w-12 place-items-center rounded-md border border-red-500/25 bg-red-950/25 text-red-500">
+                      <Icon className="h-7 w-7" name={category.icon} />
+                    </span>
+                    <span>
+                      <span className="block text-sm font-black text-[var(--text-primary)]">
+                        {category.title}
+                      </span>
+                      <span className="mt-1 block text-xs leading-5 text-[var(--text-secondary)]">
+                        {category.detail}
+                      </span>
+                    </span>
+                    <span className="border-[var(--border)] text-sm text-[var(--text-secondary)] sm:border-l sm:pl-4">
+                      <span className="block text-lg font-black text-[var(--text-primary)]">
+                        {category.count}
+                      </span>
+                      Roadmaps
+                    </span>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="mt-9 rounded-xl border border-red-500/30 bg-[linear-gradient(135deg,rgba(18,18,20,0.9),rgba(9,9,10,0.92))] p-6">
+              <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+                <div className="flex gap-4">
+                  <Icon className="mt-1 h-7 w-7 shrink-0 text-red-500" name="spark" />
+                  <div>
+                    <h2 className="text-2xl font-black text-[var(--text-primary)]">
+                      Can&apos;t find what you&apos;re looking for?
                     </h2>
-                    <p className="mt-3 text-sm leading-6 text-slate-300">
-                      {feature.detail}
+                    <p className="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
+                      Request a roadmap or suggest a new category. We&apos;re
+                      always adding more!
                     </p>
-                  </article>
-                ))}
-              </div>
-            </section>
-
-            <section className="mt-7">
-              <h2 className="border-l-4 border-red-500 pl-4 text-2xl font-black text-[var(--text-primary)]">
-                Choose Your Learning Path
-              </h2>
-              <div className="mt-6 grid gap-6 xl:grid-cols-3">
-                {learningPaths.map((path) => (
-                  <article
-                    className="flex h-full flex-col rounded-xl border border-red-500/45 bg-[var(--panel-bg)] p-6"
-                    key={path.title}
-                  >
-                    <div className="flex min-h-[118px] gap-5">
-                      <span className="grid h-14 w-14 shrink-0 place-items-center rounded-md bg-red-700/70 text-white shadow-[0_0_28px_rgba(239,68,68,0.28)]">
-                        <Icon className="h-8 w-8" name={path.icon} />
-                      </span>
-                      <div>
-                        <h3 className="text-xl font-black text-[var(--text-primary)]">
-                          {path.title}
-                        </h3>
-                        <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">
-                          {path.detail}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="relative mt-7 flex-1 space-y-3">
-                      <div className="absolute bottom-5 left-[11px] top-5 w-px bg-gradient-to-b from-red-500 via-red-600 to-red-500 shadow-[0_0_14px_rgba(239,68,68,0.65)]" />
-                      {path.steps.map((step) => (
-                        <div
-                          className="relative grid grid-cols-[22px_1fr] items-center gap-4"
-                          key={step}
-                        >
-                          <span className="relative z-10 h-3 w-3 justify-self-center rounded-full bg-red-500 shadow-[0_0_18px_rgba(239,68,68,0.9)]" />
-                          <span className="rounded-md border border-[var(--border)] bg-[var(--panel-strong)] px-4 py-2 text-sm text-[var(--text-secondary)]">
-                            {step}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <a
-                      className="mt-6 flex h-11 items-center justify-center gap-2 rounded-md border border-red-500/40 bg-red-950/10 text-sm font-bold text-red-400 transition hover:bg-red-700 hover:text-white"
-                      href="#"
-                    >
-                      Start This Path
-                      <Icon className="h-4 w-4" name="chevron" />
-                    </a>
-                  </article>
-                ))}
-              </div>
-            </section>
-
-            <section className="mt-8 rounded-xl border border-[var(--border)] bg-black/20 p-6">
-              <h2 className="border-l-4 border-red-500 pl-4 text-2xl font-black text-[var(--text-primary)]">
-                How Learning Paths Work
-              </h2>
-              <div className="mt-7 grid gap-7 md:grid-cols-2 xl:grid-cols-4">
-                {processSteps.map((step, index) => (
-                  <article className="text-center" key={step.title}>
-                    <div className="mx-auto flex items-center justify-center gap-4">
-                      <span className="grid h-14 w-14 place-items-center rounded-full border border-[var(--border)] bg-[var(--panel-strong)] text-xl font-black text-red-500">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <span className="grid h-14 w-20 place-items-center rounded-md border border-red-500/20 bg-red-950/10 text-red-500">
-                        <Icon className="h-8 w-8" name={step.icon} />
-                      </span>
-                    </div>
-                    <h3 className="mt-5 text-sm font-black text-[var(--text-primary)]">
-                      {step.title}
-                    </h3>
-                    <p className="mx-auto mt-3 max-w-[230px] text-sm leading-6 text-[var(--text-muted)]">
-                      {step.detail}
-                    </p>
-                  </article>
-                ))}
+                  </div>
+                </div>
+                <a
+                  className="flex h-12 items-center justify-center gap-2 rounded-md border border-red-500/45 px-8 text-sm font-black text-red-400 transition hover:bg-red-600 hover:text-white"
+                  href="#"
+                >
+                  Suggest a Roadmap
+                  <Icon className="h-4 w-4" name="chevron" />
+                </a>
               </div>
             </section>
           </div>
