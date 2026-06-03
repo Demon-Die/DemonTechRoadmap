@@ -42,6 +42,7 @@ async function checkRateLimit(response) {
       `    ⚠ Rate limit exhausted. Sleeping ${Math.ceil(waitMs / 1000)}s until reset (${new Date(resetTimeNum * 1000).toISOString()})...`
     );
     await delay(waitMs);
+    return true; // signal caller to retry
   } else if (remainingNum < 100) {
     console.warn(
       `    ⚠ Rate limit running low: ${remainingNum} remaining, resets at ${new Date(resetTimeNum * 1000).toISOString()}`
@@ -431,9 +432,9 @@ async function main() {
       process.exit(1);
     }
 
-    // After rebase, re-read README to detect concurrent modifications
-    const freshContent = fs.readFileSync(README_PATH, "utf8");
-    const { usernames: freshExisting } = getExistingContributors(freshContent);
+    // After rebase, read README from origin/main to detect concurrent modifications
+    const remoteReadme = git("show", "origin/main:README.md");
+    const { usernames: freshExisting } = getExistingContributors(remoteReadme);
     const stillNew = trulyNew.filter(p => !freshExisting.has(p.username.toLowerCase()));
     if (stillNew.length === 0) {
       console.log("ℹ️  All new contributors were already added by another workflow. Nothing to push.");

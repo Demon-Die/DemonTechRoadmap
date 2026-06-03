@@ -10,16 +10,10 @@ permissions:
 
 jobs:
   update-contributors:
+    if: github.actor != 'github-actions[bot]' && github.actor != 'github-actions'
     runs-on: ubuntu-latest
 
     steps:
-      - name: Skip if triggered by bot
-        if: github.actor == 'github-actions[bot]' || github.actor == 'github-actions'
-        shell: bash
-        run: |
-          echo "Triggered by bot — exiting to prevent recursive loop"
-          exit 0
-
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
