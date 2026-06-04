@@ -35,10 +35,10 @@ const sidebarGroups: SidebarGroup[] = [
   {
     title: "Guides",
     items: [
-      { label: "Study Guide", icon: "book" },
-      { label: "Best Practices", icon: "clock" },
-      { label: "Common Questions", icon: "help" },
-      { label: "Contributing", icon: "file" },
+      { label: "Study Guide", icon: "book", href: "/docs/study-guide" },
+      { label: "Best Practices", icon: "clock", href: "/docs/best-practices" },
+      { label: "Common Questions", icon: "help", href: "/docs/common-questions" },
+      { label: "Contributing", icon: "file", href: "/docs/contributing" },
     ],
   },
 ];
