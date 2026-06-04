@@ -44,9 +44,9 @@ const sidebarGroups: SidebarGroup[] = [
   {
     title: "About",
     items: [
-      { label: "About DemonTech", icon: "info" },
-      { label: "Our Mission", icon: "target" },
-      { label: "Changelog", icon: "search" },
+      { label: "About DemonTech", icon: "info", href: "/docs/about-demontech" },
+      { label: "Our Mission", icon: "target", href: "/docs/our-mission" },
+      { label: "Changelog", icon: "search", href: "/docs/changelog" },
     ],
   },
 ];
