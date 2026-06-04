@@ -53,6 +53,24 @@ const roadmapStats = [
 
 const roadmapCards = [
   {
+    title: "HTML5 Roadmap",
+    detail: "Document-backed path from HTML structure to forms, accessibility, SEO, Web APIs, and Web Components.",
+    topics: "15 Topics",
+    level: "Beginner to Advanced",
+    progress: "82%",
+    tags: ["HTML5", "Forms", "A11y", "SEO", "+5"],
+    href: "/roadmaps/html5",
+  },
+  {
+    title: "CSS Roadmap",
+    detail: "Document-backed path from CSS fundamentals to layout, responsive design, modern CSS, tooling, and accessibility.",
+    topics: "12 Topics",
+    level: "Beginner to Advanced",
+    progress: "84%",
+    tags: ["CSS3", "Flexbox", "Grid", "A11y", "+5"],
+    href: "/roadmaps/css",
+  },
+  {
     title: "JavaScript Roadmap",
     detail: "Document-backed path from JS fundamentals to ES2024, async, performance, and patterns.",
     topics: "20 Topics",
@@ -60,6 +78,24 @@ const roadmapCards = [
     progress: "90%",
     tags: ["JavaScript", "ES2024", "Async", "Patterns", "+5"],
     href: "/roadmaps/javascript",
+  },
+  {
+    title: "Python Roadmap",
+    detail: "Document-backed path from Python basics to async, packaging, testing, and PEP 8.",
+    topics: "16 Topics",
+    level: "Beginner to Advanced",
+    progress: "88%",
+    tags: ["Python", "OOP", "Async", "Testing", "+5"],
+    href: "/roadmaps/python",
+  },
+  {
+    title: "React Roadmap",
+    detail: "Document-backed path from React basics to hooks, routing, performance, TypeScript, and testing.",
+    topics: "19 Topics",
+    level: "Beginner to Advanced",
+    progress: "86%",
+    tags: ["React", "Hooks", "Router", "Testing", "+5"],
+    href: "/roadmaps/react",
   },
   {
     title: "Frontend Developer",
