@@ -1,14 +1,22 @@
-import { copyFile, access } from "node:fs/promises";
+import { copyFile, access, mkdir } from "node:fs/promises";
 import { constants } from "node:fs";
 
 const source = new URL("../.next/routes-manifest.json", import.meta.url);
 const target = new URL("../.next/routes-manifest-deterministic.json", import.meta.url);
+const repositoryRootTarget = new URL("../../.next/routes-manifest-deterministic.json", import.meta.url);
 
 export async function ensureVercelRoutesManifest() {
   try {
     await access(target, constants.F_OK);
   } catch {
     await copyFile(source, target);
+  }
+
+  try {
+    await access(repositoryRootTarget, constants.F_OK);
+  } catch {
+    await mkdir(new URL("../../.next/", import.meta.url), { recursive: true });
+    await copyFile(source, repositoryRootTarget);
   }
 }
 
