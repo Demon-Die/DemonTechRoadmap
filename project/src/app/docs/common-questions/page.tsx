@@ -61,6 +61,7 @@ const categories: QuestionCategory[] = [
 const questions = [
   "What is a roadmap and how does it help me?",
   "How do I choose the right roadmap for me?",
+  "What do beginner, intermediate, and advanced levels mean?",
   "Are the roadmaps free?",
   "How often are the roadmaps updated?",
   "Can I suggest changes or improvements to a roadmap?",
@@ -352,6 +353,33 @@ export default function CommonQuestions() {
                               18
                             </span>
                           </div>
+                        </div>
+                      )}
+                      {index === 2 && (
+                        <div className="ml-9 mt-6 text-sm leading-7 text-[var(--text-secondary)]">
+                          <p className="text-[var(--text-secondary)]">
+                            These labels show how deep the topics usually are before
+                            moving to the next stage:
+                          </p>
+                          <ul className="mt-4 list-disc space-y-2 pl-5 text-[var(--text-secondary)]">
+                            <li>
+                              <span className="font-semibold text-[var(--text-primary)]">Beginner:</span>{" "}
+                              foundation topics that build the core concepts and terms.
+                            </li>
+                            <li>
+                              <span className="font-semibold text-[var(--text-primary)]">Intermediate:</span>{" "}
+                              practical topics that combine core ideas with real examples and common pitfalls.
+                            </li>
+                            <li>
+                              <span className="font-semibold text-[var(--text-primary)]">Advanced:</span>{" "}
+                              project-scale, architecture-heavy topics where independent problem-solving is expected.
+                            </li>
+                          </ul>
+                          <p className="mt-4">
+                            In this roadmap you may also see labels such as Starter, Core,
+                            Applied, Advanced, and Expert. Treat them as finer-grained
+                            steps on the same path from beginner to advanced mastery.
+                          </p>
                         </div>
                       )}
                     </article>
