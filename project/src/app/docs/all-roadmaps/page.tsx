@@ -709,6 +709,127 @@ export default function AllRoadmaps() {
             <section className="mt-9 rounded-xl border border-[var(--border)] bg-black/20 p-5">
               <h2 className="flex items-center gap-3 text-2xl font-black text-[var(--text-primary)]">
                 <Icon className="h-7 w-7 text-red-500" name="spark" />
+                Compare Roadmaps at a Glance
+              </h2>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--text-secondary)]">
+                Not sure which path to pick? Compare estimated timelines,
+                difficulty levels, and ideal learner profiles side by side.
+              </p>
+
+              <div className="mt-6 overflow-x-auto rounded-lg border border-[var(--border)]">
+                <table className="w-full min-w-[640px] border-collapse text-left text-sm">
+                  <caption className="sr-only">
+                    Comparison of roadmap paths by learner fit, duration, and starting difficulty.
+                  </caption>
+                  <thead>
+                    <tr className="border-b border-[var(--border)] bg-[var(--panel-strong)]">
+                      <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.14em] text-red-400" scope="col">
+                        Roadmap
+                      </th>
+                      <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.14em] text-red-400" scope="col">
+                        Best For
+                      </th>
+                      <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.14em] text-red-400" scope="col">
+                        Est. Duration
+                      </th>
+                      <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.14em] text-red-400" scope="col">
+                        Starting Difficulty
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-[var(--border)]">
+                    {([
+                      {
+                        name: "Frontend Developer",
+                        bestFor: "Visual thinkers who love crafting user interfaces",
+                        duration: "4–6 months",
+                        difficulty: "Beginner" as const,
+                        href: "/roadmaps/frontend-developer",
+                        icon: "paint",
+                      },
+                      {
+                        name: "Backend Developer",
+                        bestFor: "Problem solvers who enjoy working with data and logic",
+                        duration: "5–7 months",
+                        difficulty: "Intermediate" as const,
+                        href: "/roadmaps/backend-developer",
+                        icon: "gear",
+                      },
+                      {
+                        name: "Full Stack Developer",
+                        bestFor: "Generalists who want to build complete applications",
+                        duration: "8–12 months",
+                        difficulty: "Intermediate" as const,
+                        href: "/roadmaps/full-stack-developer",
+                        icon: "layers",
+                      },
+                      {
+                        name: "DevOps Engineer",
+                        bestFor: "System thinkers who enjoy automation and infrastructure",
+                        duration: "6–9 months",
+                        difficulty: "Intermediate" as const,
+                        href: "/roadmaps/devops-engineer",
+                        icon: "rocket",
+                      },
+                      {
+                        name: "Data Scientist",
+                        bestFor: "Analytical minds drawn to data, statistics, and ML",
+                        duration: "8–12 months",
+                        difficulty: "Intermediate" as const,
+                        href: "/roadmaps/data-scientist",
+                        icon: "target",
+                      },
+                      {
+                        name: "Mobile Developer",
+                        bestFor: "Builders who want to create apps for phones and tablets",
+                        duration: "6–9 months",
+                        difficulty: "Intermediate" as const,
+                        href: "/roadmaps/mobile-developer",
+                        icon: "bolt",
+                      },
+                    ] as const).map((row) => (
+                      <tr
+                        className="transition hover:bg-[var(--panel-strong)]"
+                        key={row.name}
+                      >
+                        <td className="px-5 py-4">
+                          <Link
+                            className="inline-flex items-center gap-2 font-black text-[var(--text-primary)] transition hover:text-red-500"
+                            href={row.href}
+                          >
+                            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md border border-red-500/25 bg-red-950/20 text-red-500">
+                              <Icon className="h-4 w-4" name={row.icon} />
+                            </span>
+                            {row.name}
+                          </Link>
+                        </td>
+                        <td className="px-5 py-4 text-[var(--text-secondary)]">
+                          {row.bestFor}
+                        </td>
+                        <td className="px-5 py-4 font-bold text-[var(--text-secondary)]">
+                          {row.duration}
+                        </td>
+                        <td className="px-5 py-4">
+                          <span
+                            className={`inline-block rounded border px-2.5 py-1 text-xs font-black ${
+                              row.difficulty === "Beginner"
+                                ? "border-emerald-500/25 bg-emerald-950/20 text-emerald-400"
+                                : "border-amber-500/25 bg-amber-950/20 text-amber-400"
+                            }`}
+                          >
+                            {row.difficulty}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section className="mt-9 rounded-xl border border-[var(--border)] bg-black/20 p-5">
+              <h2 className="flex items-center gap-3 text-2xl font-black text-[var(--text-primary)]">
+                <Icon className="h-7 w-7 text-red-500" name="spark" />
                 Why Choose Our Roadmaps?
               </h2>
               <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
