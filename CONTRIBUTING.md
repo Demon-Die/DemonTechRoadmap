@@ -111,6 +111,7 @@ New to open source? Here's how to get started the right way:
 * Test your changes locally before submitting
 * Keep each PR focused on **one issue only** — don't bundle unrelated changes
 * Always reference the issue your PR resolves in the PR description
+* **Roadmap Data Quality:** Please read our [Roadmap Data Quality Guidelines](ROADMAP_DATA_QUALITY.md) before submitting or modifying roadmap topics and resources.
 
 ---
 
