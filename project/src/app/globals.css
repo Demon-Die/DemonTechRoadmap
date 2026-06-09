@@ -40,3 +40,14 @@ a,
 button {
   -webkit-tap-highlight-color: transparent;
 }
+
+/* Accessible focus styles for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid #ef4444;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
