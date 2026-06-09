@@ -64,6 +64,11 @@ async function validateResourceFile(filePath) {
     return errors;
   }
 
+  if (!data || typeof data !== "object" || Array.isArray(data)) {
+    errors.push(`${fileName}: Top-level JSON must be an object.`);
+    return errors;
+  }
+
   // --- Top-level field checks ---
   for (const field of REQUIRED_TOP_LEVEL) {
     if (data[field] === undefined || data[field] === null) {
@@ -87,6 +92,11 @@ async function validateResourceFile(filePath) {
   data.categories.forEach((cat, catIdx) => {
     const catLabel = `${fileName} > category[${catIdx}]`;
 
+    if (!cat || typeof cat !== "object" || Array.isArray(cat)) {
+      errors.push(`${catLabel}: Category entry must be an object.`);
+      return;
+    }
+
     for (const field of REQUIRED_CATEGORY) {
       if (cat[field] === undefined || cat[field] === null) {
         errors.push(`${catLabel}: Missing required field "${field}".`);
@@ -105,6 +115,11 @@ async function validateResourceFile(filePath) {
     cat.resources.forEach((res, resIdx) => {
       const resLabel = `${fileName} > category[${catIdx}] > resource[${resIdx}]`;
 
+      if (!res || typeof res !== "object" || Array.isArray(res)) {
+        errors.push(`${resLabel}: Resource entry must be an object.`);
+        return;
+      }
+
       for (const field of REQUIRED_RESOURCE) {
         if (res[field] === undefined || res[field] === null) {
           errors.push(`${resLabel}: Missing required field "${field}".`);
@@ -122,11 +137,15 @@ async function validateResourceFile(filePath) {
       }
 
       // Difficulty validation
-      if (typeof res.difficulty === "string" && !VALID_DIFFICULTIES.has(res.difficulty)) {
-        errors.push(
-          `${resLabel}: Invalid difficulty "${res.difficulty}". ` +
-          `Allowed: ${[...VALID_DIFFICULTIES].join(", ")}.`
-        );
+      if (res.difficulty !== undefined && res.difficulty !== null) {
+        if (typeof res.difficulty !== "string") {
+          errors.push(`${resLabel}: Invalid difficulty type: must be a string`);
+        } else if (!VALID_DIFFICULTIES.has(res.difficulty)) {
+          errors.push(
+            `${resLabel}: Invalid difficulty "${res.difficulty}". ` +
+            `Allowed: ${[...VALID_DIFFICULTIES].join(", ")}.`
+          );
+        }
       }
 
       // Duplicate ID check
