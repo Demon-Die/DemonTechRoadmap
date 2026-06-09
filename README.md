@@ -50,6 +50,7 @@ Our mission is to make learning technology easier by providing clear, step-by-st
 
 - [Contributing Guide](./CONTRIBUTING.md)
 - [Code of Conduct](./CODE_OF_CONDUCT.md)
+- [Vercel Deployment Workflow](./DEPLOYMENT.md)
   
 ## 🤝 Contributing
 
