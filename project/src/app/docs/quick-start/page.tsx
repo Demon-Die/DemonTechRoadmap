@@ -354,7 +354,7 @@ export default function QuickStart() {
                     </h2>
                   </div>
                   <p className="mt-4 text-sm leading-7 text-[var(--text-secondary)]">
-                    Head over to the <Link href="/docs/all-roadmaps" className="font-bold text-red-500 hover:underline">All Roadmaps</Link> page. Browse through the available paths like Frontend, Backend, or DevOps. Pick the one that aligns with your current career goals or interests. Don't worry about picking the "perfect" one; you can always switch later.
+                    Head over to the <Link href="/docs/all-roadmaps" className="font-bold text-red-500 hover:underline">All Roadmaps</Link> page. Browse through the available paths like Frontend, Backend, or DevOps. Pick the one that aligns with your current career goals or interests. Don&apos;t worry about picking the &quot;perfect&quot; one; you can always switch later.
                   </p>
                 </div>
 
@@ -368,7 +368,7 @@ export default function QuickStart() {
                     </h2>
                   </div>
                   <p className="mt-4 text-sm leading-7 text-[var(--text-secondary)]">
-                    Each roadmap is divided into phases and topics. Start from the very first topic in Phase 1. Even if you think you know it, a quick review is always helpful. Use the interactive nodes to mark topics as "Completed" as you progress to keep track of your journey.
+                    Each roadmap is divided into phases and topics. Start from the very first topic in Phase 1. Even if you think you know it, a quick review is always helpful. Use the interactive nodes to mark topics as &quot;Completed&quot; as you progress to keep track of your journey.
                   </p>
                 </div>
 
@@ -382,7 +382,7 @@ export default function QuickStart() {
                     </h2>
                   </div>
                   <p className="mt-4 text-sm leading-7 text-[var(--text-secondary)]">
-                    When you click on a topic, you'll find a curated list of free resources. We've hand-picked articles, videos, and documentation. You don't need to read every single one—just pick the medium that works best for you and study until you understand the core concepts.
+                    When you click on a topic, you&apos;ll find a curated list of free resources. We&apos;ve hand-picked articles, videos, and documentation. You don&apos;t need to read every single one—just pick the medium that works best for you and study until you understand the core concepts.
                   </p>
                 </div>
 
@@ -396,7 +396,7 @@ export default function QuickStart() {
                     </h2>
                   </div>
                   <p className="mt-4 text-sm leading-7 text-[var(--text-secondary)]">
-                    Tutorial hell is real. At the end of major phases, you'll find recommended projects. <strong>Do not skip these.</strong> Building a real project without copy-pasting is the only way to solidify what you've learned and build a portfolio you can show to employers.
+                    Tutorial hell is real. At the end of major phases, you&apos;ll find recommended projects. <strong>Do not skip these.</strong> Building a real project without copy-pasting is the only way to solidify what you&apos;ve learned and build a portfolio you can show to employers.
                   </p>
                 </div>
               </section>
@@ -431,7 +431,7 @@ export default function QuickStart() {
                     Ask Questions
                   </h3>
                   <p className="mx-auto mt-3 max-w-[180px] text-sm leading-6 text-[var(--text-muted)]">
-                    Join our Discord community. Don't stay stuck on a bug for days.
+                    Join our Discord community. Don&apos;t stay stuck on a bug for days.
                   </p>
                 </article>
                 <article className="text-center">
