@@ -175,24 +175,12 @@ export default function Introduction() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const theme = isDarkMode ? darkTheme : lightTheme;
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Demon Tech Roadmap",
-    url: "https://demon-tech-roadmap.vercel.app",
-    description:
-      "Community-driven roadmaps that help beginners learn technology through clear learning paths, curated resources, and project-focused growth.",
-  };
 
   return (
     <main
       className="min-h-screen overflow-hidden bg-[var(--page-bg)] text-[var(--text-primary)] transition-colors duration-300"
       style={theme}
     >
-      <script
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
-        type="application/ld+json"
-      />
       <div
         className={`fixed inset-0 -z-10 transition-colors duration-300 ${
           isDarkMode

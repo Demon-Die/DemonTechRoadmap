@@ -54,8 +54,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Demon Tech Roadmap",
+    url: "https://demon-tech-roadmap.vercel.app",
+    description:
+      "Community-driven roadmaps that help beginners learn technology through clear learning paths, curated resources, and project-focused growth.",
+  };
+
   return (
     <html lang="en" className="h-full antialiased">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+          type="application/ld+json"
+        />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
