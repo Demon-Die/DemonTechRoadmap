@@ -69,38 +69,7 @@ const quickFeatures = [
   },
 ];
 
-const interactiveFeatures = [
-  {
-    title: "Practical Examples",
-    detail: "Real-world examples you can understand and use.",
-    icon: "window",
-  },
-  {
-    title: "Edit & Learn",
-    detail: "Modify the code and learn by experimenting.",
-    icon: "pen",
-  },
-  {
-    title: "Instant Feedback",
-    detail: "See results instantly and grasp concepts faster.",
-    icon: "rocket",
-  },
-];
 
-const codeLines = [
-  "<!DOCTYPE html>",
-  '<html lang="en">',
-  "<head>",
-  '  <meta charset="UTF-8" />',
-  "  <title>Hello DemonTech</title>",
-  '  <link rel="stylesheet" href="style.css" />',
-  "</head>",
-  "<body>",
-  "  <h1>Hello, DemonTech!</h1>",
-  "  <p>Start your journey to become a better developer.</p>",
-  "</body>",
-  "</html>",
-];
 
 const iconPaths: Record<string, ReactNode> = {
   home: <path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1v-8.5Z" />,
@@ -202,7 +171,6 @@ function DemonTechLogo() {
 
 export default function QuickStart() {
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const [activeTab, setActiveTab] = useState("HTML");
   const theme = isDarkMode ? darkTheme : lightTheme;
 
   return (
@@ -375,80 +343,61 @@ export default function QuickStart() {
                 </div>
               </section>
 
-              <section className="overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--panel-bg)] shadow-2xl shadow-[var(--shadow)] ring-1 ring-red-500/30">
-                <div className="flex items-center justify-between gap-4 border-b border-[var(--border)] px-5 py-5">
+              <section className="space-y-6">
+                <div className="rounded-lg border border-[var(--border)] bg-[var(--panel-bg)] p-7 shadow-2xl shadow-[var(--shadow)] ring-1 ring-red-500/30">
                   <div className="flex items-center gap-3">
-                    <Icon className="h-5 w-5 text-red-500" name="code" />
-                    <h2 className="text-base font-bold text-[var(--text-primary)]">
-                      Example: Hello DemonTech
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-red-600 font-black text-white">
+                      1
+                    </span>
+                    <h2 className="text-lg font-black text-[var(--text-primary)]">
+                      Choose Your Roadmap
                     </h2>
                   </div>
+                  <p className="mt-4 text-sm leading-7 text-[var(--text-secondary)]">
+                    Head over to the <Link href="/docs/all-roadmaps" className="font-bold text-red-500 hover:underline">All Roadmaps</Link> page. Browse through the available paths like Frontend, Backend, or DevOps. Pick the one that aligns with your current career goals or interests. Don&apos;t worry about picking the &quot;perfect&quot; one; you can always switch later.
+                  </p>
                 </div>
 
-                <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[var(--border)] px-5">
-                  <div className="flex gap-6">
-                    {["HTML", "CSS", "JavaScript"].map((tab) => (
-                      <button
-                        className={`relative h-14 text-sm font-bold transition ${
-                          activeTab === tab
-                            ? "text-red-500"
-                            : "text-[var(--text-muted)] hover:text-[var(--text-primary)]"
-                        }`}
-                        key={tab}
-                        onClick={() => setActiveTab(tab)}
-                        type="button"
-                      >
-                        {tab}
-                        {activeTab === tab && (
-                          <span className="absolute bottom-0 left-0 h-0.5 w-full bg-red-500" />
-                        )}
-                      </button>
-                    ))}
+                <div className="rounded-lg border border-[var(--border)] bg-[var(--panel-bg)] p-7 shadow-2xl shadow-[var(--shadow)] ring-1 ring-red-500/30">
+                  <div className="flex items-center gap-3">
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-red-600 font-black text-white">
+                      2
+                    </span>
+                    <h2 className="text-lg font-black text-[var(--text-primary)]">
+                      Navigate the Topics
+                    </h2>
                   </div>
-                  <div className="flex gap-3 py-3">
-                    <button className="flex h-9 items-center gap-2 rounded-md border border-[var(--border)] bg-[var(--panel-strong)] px-4 text-xs text-[var(--text-secondary)]" type="button">
-                      <Icon className="h-4 w-4" name="reset" />
-                      Reset
-                    </button>
-                    <button className="flex h-9 items-center gap-2 rounded-md bg-red-600 px-4 text-xs font-bold text-white shadow-lg shadow-red-950/30" type="button">
-                      <Icon className="h-4 w-4" name="copy" />
-                      Copy
-                    </button>
-                  </div>
+                  <p className="mt-4 text-sm leading-7 text-[var(--text-secondary)]">
+                    Each roadmap is divided into phases and topics. Start from the very first topic in Phase 1. Even if you think you know it, a quick review is always helpful. Use the interactive nodes to mark topics as &quot;Completed&quot; as you progress to keep track of your journey.
+                  </p>
                 </div>
 
-                <div className="grid min-h-[270px] lg:grid-cols-[1fr_0.9fr]">
-                  <div className="border-b border-[var(--border)] p-5 font-mono text-sm leading-7 lg:border-b-0 lg:border-r">
-                    {codeLines.map((line, index) => (
-                      <div className="grid grid-cols-[28px_1fr] gap-5" key={`${line}-${index}`}>
-                        <span className="text-right text-[var(--text-muted)]">
-                          {index + 1}
-                        </span>
-                        <code className="whitespace-pre-wrap text-[var(--text-secondary)]">
-                          {line}
-                        </code>
-                      </div>
-                    ))}
+                <div className="rounded-lg border border-[var(--border)] bg-[var(--panel-bg)] p-7 shadow-2xl shadow-[var(--shadow)] ring-1 ring-red-500/30">
+                  <div className="flex items-center gap-3">
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-red-600 font-black text-white">
+                      3
+                    </span>
+                    <h2 className="text-lg font-black text-[var(--text-primary)]">
+                      Study the Resources
+                    </h2>
                   </div>
-                  <div className="relative min-h-[270px] overflow-hidden p-6">
-                    <div className="absolute inset-x-0 bottom-0 h-32 bg-[radial-gradient(circle_at_72%_100%,rgba(220,38,38,0.34),transparent_52%)]" />
-                    <p className="relative text-xs font-black uppercase tracking-[0.14em] text-[var(--text-muted)]">
-                      Live Preview
-                    </p>
-                    <div className="relative mt-12">
-                      <h3 className="text-3xl font-black text-[var(--text-primary)]">
-                        Hello, DemonTech!
-                      </h3>
-                      <p className="mt-7 max-w-sm text-lg leading-8 text-[var(--text-secondary)]">
-                        Start your journey to become a better developer.
-                      </p>
-                    </div>
-                  </div>
+                  <p className="mt-4 text-sm leading-7 text-[var(--text-secondary)]">
+                    When you click on a topic, you&apos;ll find a curated list of free resources. We&apos;ve hand-picked articles, videos, and documentation. You don&apos;t need to read every single one—just pick the medium that works best for you and study until you understand the core concepts.
+                  </p>
                 </div>
 
-                <div className="border-t border-[var(--border)] px-5 py-4 text-sm text-[var(--text-muted)]">
-                  <span className="font-bold text-red-500">Tip:</span> Edit the
-                  code on the left and see the changes in real-time.
+                <div className="rounded-lg border border-[var(--border)] bg-[var(--panel-bg)] p-7 shadow-2xl shadow-[var(--shadow)] ring-1 ring-red-500/30">
+                  <div className="flex items-center gap-3">
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-red-600 font-black text-white">
+                      4
+                    </span>
+                    <h2 className="text-lg font-black text-[var(--text-primary)]">
+                      Build Projects
+                    </h2>
+                  </div>
+                  <p className="mt-4 text-sm leading-7 text-[var(--text-secondary)]">
+                    Tutorial hell is real. At the end of major phases, you&apos;ll find recommended projects. <strong>Do not skip these.</strong> Building a real project without copy-pasting is the only way to solidify what you&apos;ve learned and build a portfolio you can show to employers.
+                  </p>
                 </div>
               </section>
             </div>
@@ -458,27 +407,42 @@ export default function QuickStart() {
                 <Icon className="mt-1 h-9 w-9 shrink-0 text-red-500" name="spark" />
                 <div>
                   <h2 className="text-lg font-black text-[var(--text-primary)]">
-                    Why Interactive Docs?
+                    Tips for Success
                   </h2>
                   <p className="mt-5 text-sm leading-7 text-[var(--text-secondary)]">
-                    We believe in hands-on learning. That&apos;s why our
-                    documentation is interactive, editable, and beginner-friendly.
+                    Learning to code takes time and patience. Here are a few tips to help you stay on track and get the most out of the roadmaps.
                   </p>
                 </div>
               </div>
 
               <div className="grid gap-5 border-t border-[var(--border)] pt-7 sm:grid-cols-3 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
-                {interactiveFeatures.map((feature) => (
-                  <article className="text-center" key={feature.title}>
-                    <Icon className="mx-auto h-9 w-9 text-red-500" name={feature.icon} />
-                    <h3 className="mt-5 text-sm font-black text-[var(--text-primary)]">
-                      {feature.title}
-                    </h3>
-                    <p className="mx-auto mt-3 max-w-[180px] text-sm leading-6 text-[var(--text-muted)]">
-                      {feature.detail}
-                    </p>
-                  </article>
-                ))}
+                <article className="text-center">
+                  <Icon className="mx-auto h-9 w-9 text-red-500" name="clock" />
+                  <h3 className="mt-5 text-sm font-black text-[var(--text-primary)]">
+                    Be Consistent
+                  </h3>
+                  <p className="mx-auto mt-3 max-w-[180px] text-sm leading-6 text-[var(--text-muted)]">
+                    30 minutes every day is better than 5 hours once a week. Build a habit.
+                  </p>
+                </article>
+                <article className="text-center">
+                  <Icon className="mx-auto h-9 w-9 text-red-500" name="help" />
+                  <h3 className="mt-5 text-sm font-black text-[var(--text-primary)]">
+                    Ask Questions
+                  </h3>
+                  <p className="mx-auto mt-3 max-w-[180px] text-sm leading-6 text-[var(--text-muted)]">
+                    Join our Discord community. Don&apos;t stay stuck on a bug for days.
+                  </p>
+                </article>
+                <article className="text-center">
+                  <Icon className="mx-auto h-9 w-9 text-red-500" name="route" />
+                  <h3 className="mt-5 text-sm font-black text-[var(--text-primary)]">
+                    Trust the Process
+                  </h3>
+                  <p className="mx-auto mt-3 max-w-[180px] text-sm leading-6 text-[var(--text-muted)]">
+                    The path is long, but it is proven. Focus on the next topic, not the finish line.
+                  </p>
+                </article>
               </div>
             </section>
 
