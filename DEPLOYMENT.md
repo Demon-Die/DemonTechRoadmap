@@ -20,14 +20,14 @@ Because the main Next.js app lives in `project/`, Vercel must be explicitly conf
 ```json
 {
   "framework": "nextjs",
-  "installCommand": "npm --prefix project ci --include=dev",
-  "buildCommand": "npm --prefix project run build",
+  "installCommand": "npm ci --include=dev",
+  "buildCommand": "npm run build",
   "outputDirectory": "project/.next"
 }
 ```
 
-- `installCommand`: Uses `--prefix project` to install dependencies in the `project/` directory.
-- `buildCommand`: Runs the build inside `project/`.
+- `installCommand`: Installs from the repository root so npm workspaces place shared dependencies where Vercel's Next.js tracing expects them.
+- `buildCommand`: Runs the root workspace build, which delegates to `project`.
 - `outputDirectory`: Points to `project/.next` where the compiled Next.js app is output.
 
 ### The Custom Build Script

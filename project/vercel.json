@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "installCommand": "if [ -f project/package.json ]; then npm --prefix project ci --include=dev; else npm ci --include=dev; fi",
-  "buildCommand": "if [ -f project/package.json ]; then npm --prefix project run build; else npm run build; fi"
+  "installCommand": "npm --prefix .. ci --include=dev",
+  "buildCommand": "npm --prefix .. run build"
 }
