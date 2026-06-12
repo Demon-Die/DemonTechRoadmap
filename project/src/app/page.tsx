@@ -7,6 +7,7 @@ import SocialProof from "@/src/components/SocialProof";
 import Testimonials from "@/src/components/Testimonials";
 import RoadmapQuiz from "@/src/components/RoadmapQuiz";
 import NewsletterForm from "@/src/components/NewsletterForm";
+import ScrollReveal from "@/src/components/ScrollReveal";
 
 const audiences = [
   {
@@ -122,59 +123,67 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section className="border-y border-zinc-900 bg-zinc-950 px-5 py-14 lg:px-8">
-        <div className="mx-auto max-w-[1280px]">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="text-sm font-black text-red-400">Who is this for?</p>
-              <h2 className="mt-3 text-3xl font-black text-white">A practical path for self-taught builders</h2>
+      
+      <ScrollReveal>
+        <section className="border-y border-zinc-900 bg-zinc-950 px-5 py-14 lg:px-8">
+          <div className="mx-auto max-w-[1280px]">
+            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <div>
+                <p className="text-sm font-black text-red-400">Who is this for?</p>
+                <h2 className="mt-3 text-3xl font-black text-white">A practical path for self-taught builders</h2>
+              </div>
+              <Link className="inline-flex h-11 w-fit items-center gap-2 rounded-md border border-zinc-700 px-4 text-sm font-black text-zinc-100 transition hover:border-red-500" href="/docs/common-questions">
+                Read FAQ
+                <Icon className="h-4 w-4" name="arrow" />
+              </Link>
             </div>
-            <Link className="inline-flex h-11 w-fit items-center gap-2 rounded-md border border-zinc-700 px-4 text-sm font-black text-zinc-100 transition hover:border-red-500" href="/docs/common-questions">
-              Read FAQ
-              <Icon className="h-4 w-4" name="arrow" />
-            </Link>
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
+              {audiences.map((item, index) => (
+                <article className="rounded-lg border border-zinc-800 bg-[#090909] p-6" key={item.title}>
+                  <span className="grid h-10 w-10 place-items-center rounded-md bg-red-500 text-sm font-black text-white">{index + 1}</span>
+                  <h3 className="mt-5 text-lg font-black text-white">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-zinc-400">{item.text}</p>
+                </article>
+              ))}
+            </div>
           </div>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {audiences.map((item, index) => (
-              <article className="rounded-lg border border-zinc-800 bg-[#090909] p-6" key={item.title}>
-                <span className="grid h-10 w-10 place-items-center rounded-md bg-red-500 text-sm font-black text-white">{index + 1}</span>
-                <h3 className="mt-5 text-lg font-black text-white">{item.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-zinc-400">{item.text}</p>
-              </article>
-            ))}
+        </section>
+      </ScrollReveal>
+      
+      <ScrollReveal>
+        <section className="px-5 py-16 lg:px-8 bg-[#050505]">
+          <div className="mx-auto max-w-[1280px]">
+            <RoadmapQuiz />
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
-      <section className="px-5 py-16 lg:px-8 bg-[#050505]">
-        <div className="mx-auto max-w-[1280px]">
-          <RoadmapQuiz />
-        </div>
-      </section>
+      <ScrollReveal>
+        <Testimonials />
+      
+        <section className="px-5 py-16 lg:px-8">
+          <div className="mx-auto grid max-w-[1280px] gap-8 lg:grid-cols-2">
+            <div className="rounded-lg border border-zinc-800 bg-[#090909] p-6">
+              <Icon className="h-8 w-8 text-emerald-300" name="check" />
+              <h2 className="mt-5 text-2xl font-black text-white">Your progress has a home</h2>
+              <p className="mt-4 text-sm leading-7 text-zinc-400">
+                The dashboard brings completed topics, bookmarks, notes, streaks, and next steps into one place so learners can continue from where they left off.
+              </p>
+              <Link className="mt-6 inline-flex h-11 items-center gap-2 rounded-md bg-white px-4 text-sm font-black text-black transition hover:bg-zinc-200" href="/dashboard">
+                Open Dashboard
+                <Icon className="h-4 w-4" name="arrow" />
+              </Link>
+            </div>
 
-      <Testimonials />
-
-      <section className="px-5 py-16 lg:px-8">
-        <div className="mx-auto grid max-w-[1280px] gap-8 lg:grid-cols-2">
-          <div className="rounded-lg border border-zinc-800 bg-[#090909] p-6">
-            <Icon className="h-8 w-8 text-emerald-300" name="check" />
-            <h2 className="mt-5 text-2xl font-black text-white">Your progress has a home</h2>
-            <p className="mt-4 text-sm leading-7 text-zinc-400">
-              The dashboard brings completed topics, bookmarks, notes, streaks, and next steps into one place so learners can continue from where they left off.
-            </p>
-            <Link className="mt-6 inline-flex h-11 items-center gap-2 rounded-md bg-white px-4 text-sm font-black text-black transition hover:bg-zinc-200" href="/dashboard">
-              Open Dashboard
-              <Icon className="h-4 w-4" name="arrow" />
-            </Link>
+            <NewsletterForm />
           </div>
-
-          <NewsletterForm />
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Community Leaderboard */}
-      <ContributorLeaderboard />
+      <ScrollReveal>
+        <ContributorLeaderboard />
+      </ScrollReveal>
 
       <footer className="border-t border-zinc-900 bg-black px-5 py-10 lg:px-8">
         <div className="mx-auto flex max-w-[1280px] flex-col gap-8 md:flex-row md:items-center md:justify-between">
