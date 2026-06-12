@@ -80,7 +80,7 @@ export type RoadmapPageShellProps = {
   progressSchemaTitle?: string;
   progressTitle: string;
   readinessTitle: string;
-  missingTitle: string;
+  missingTitle?: string;
   estimatedTime: string;
   miniProjectLabel: string;
   notesPlaceholder?: string;
@@ -94,7 +94,7 @@ export type RoadmapPageShellProps = {
   progressSchema?: Array<[string, string]>;
   architectureCards?: Array<[string, string]>;
   achievementBadges: string[];
-  missingTopics: string[];
+  missingTopics?: string[];
   readinessMetrics: ReadinessMetric[];
   roadmapTitle?: string;
 };
@@ -1386,8 +1386,8 @@ export function ProgressDashboard({
   completedCount: number;
   currentLevel: Stage;
   estimatedTime: string;
-  missingTitle: string;
-  missingTopics: string[];
+  missingTitle?: string;
+  missingTopics?: string[];
   nextNode: RoadmapNode;
   noteCount: number;
   progressPercentage: number;
@@ -1670,21 +1670,30 @@ function DynamicEta({
   stageProgress: Array<StageSummary & { completed: number; total: number; percentage: number }>;
   estimatedTime: string;
 }) {
-  const remaining = totalNodes - completedCount;
-  const hoursPerTopic = 4;
-  const hoursLeft = remaining * hoursPerTopic;
-
   let etaText: string;
-  if (remaining === 0) {
+
+  if (completedCount >= totalNodes) {
     etaText = "Roadmap complete! 🎉";
-  } else if (hoursLeft < 10) {
-    etaText = `~${hoursLeft}h remaining`;
-  } else if (hoursLeft < 40) {
-    const days = Math.ceil(hoursLeft / 4);
-    etaText = `~${days} study days left`;
   } else {
-    const weeks = Math.ceil(hoursLeft / 20);
-    etaText = `~${weeks} weeks remaining`;
+    // Parse the estimatedTime string like "40-52w" or "96w" or "78-108w"
+    const weekMatch = estimatedTime.match(/(\d+)(?:\s*[-–]\s*(\d+))?\s*w/i);
+    if (weekMatch) {
+      const minWeeks = parseInt(weekMatch[1], 10);
+      const maxWeeks = weekMatch[2] ? parseInt(weekMatch[2], 10) : minWeeks;
+      const avgWeeks = (minWeeks + maxWeeks) / 2;
+      const fractionRemaining = totalNodes > 0 ? (totalNodes - completedCount) / totalNodes : 1;
+      const weeksRemaining = Math.ceil(avgWeeks * fractionRemaining);
+
+      if (weeksRemaining <= 1) {
+        etaText = "~1 week remaining";
+      } else {
+        etaText = `~${weeksRemaining} weeks remaining`;
+      }
+    } else {
+      // Fallback if the format doesn't match
+      const percentage = totalNodes > 0 ? Math.round((completedCount / totalNodes) * 100) : 0;
+      etaText = `${100 - percentage}% remaining`;
+    }
   }
 
   return (
@@ -1695,3 +1704,4 @@ function DynamicEta({
     </div>
   );
 }
+

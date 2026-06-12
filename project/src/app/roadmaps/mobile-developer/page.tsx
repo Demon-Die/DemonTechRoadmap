@@ -1947,20 +1947,6 @@ const projectTracks: ProjectTrack[] = [
   }
 ];
 
-const missingTopics: string[] = [
-  "App store optimization",
-  "Privacy manifests",
-  "In-app purchases",
-  "Payments and subscriptions",
-  "Feature flags",
-  "A/B testing",
-  "Mobile analytics taxonomy",
-  "Crash triage workflow",
-  "Localization and internationalization",
-  "App size optimization",
-  "Device lab QA",
-  "Accessibility audits"
-];
 
 const careerPaths: RoadmapPath[] = [
   {
@@ -2078,32 +2064,6 @@ const achievementBadges: string[] = [
   "Release Lead"
 ];
 
-const progressSchema: Array<[string, string]> = [
-  [
-    "users",
-    "id, name, email, role, created_at"
-  ],
-  [
-    "mobile_progress",
-    "user_id, roadmap_id, completed_node_ids, xp, streak_days, readiness_scores"
-  ],
-  [
-    "coding_challenges",
-    "user_id, topic_id, platform, status, score, completed_at"
-  ],
-  [
-    "app_projects",
-    "user_id, project_id, repository_url, build_status, release_notes"
-  ],
-  [
-    "certification_tracking",
-    "user_id, certification_id, target_date, status, score"
-  ],
-  [
-    "release_runs",
-    "user_id, app_id, platform, version, channel, shipped_at"
-  ]
-];
 
 const resourceCategories: string[] = ["Official Documentation", "Video Courses", "Open Source Apps", "Community Resources", "Design Resources"];
 
@@ -2158,10 +2118,8 @@ export default function MobileDeveloperRoadmap() {
       certificationTitle="Mobile Certifications Tracker"
       certificationDescription="Map roadmap progress to practical Android, Flutter, Apple, Firebase, and React Native certification goals without turning the page into a memorization checklist."
       gamificationTitle="Gamification & Mobile Learning Tools"
-      progressSchemaTitle="Mobile Progress Database Schema"
       progressTitle="Mobile Development Progress"
       readinessTitle="Platform Readiness"
-      missingTitle="Missing Mobile Topics Added"
       estimatedTime="88-120w"
       miniProjectLabel="Mini Project"
       stageSummaries={stageSummaries}
@@ -2171,10 +2129,8 @@ export default function MobileDeveloperRoadmap() {
       paths={careerPaths}
       certifications={certificationPaths}
       gamificationCards={gamificationCards}
-      progressSchema={progressSchema}
       architectureCards={architectureCards}
       achievementBadges={achievementBadges}
-      missingTopics={missingTopics}
       readinessMetrics={readinessMetrics}
     />
   );

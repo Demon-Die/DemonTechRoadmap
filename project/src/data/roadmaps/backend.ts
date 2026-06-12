@@ -517,18 +517,7 @@ const projectTracks: ProjectTrack[] = [
   { stage: "Expert", projects: ["Distributed Microservices Platform", "Netflix-style Backend Architecture", "Scalable SaaS Backend"] },
 ];
 
-const missingTopics: string[] = [
-  "Domain-driven design",
-  "API gateways",
-  "Service discovery",
-  "Secrets management",
-  "Database migrations",
-  "Backup strategy",
-  "Feature flags",
-  "Blue-green deployments",
-  "Contract testing",
-  "Data privacy and compliance",
-];
+
 
 const resourceCategories: string[] = ["Official Docs", "Video", "Practice", "Community"];
 
@@ -553,7 +542,7 @@ export const backendRoadmap = {
   resourceTitle: "Backend Resource Matrix",
   progressTitle: "Backend Progress",
   readinessTitle: "Backend Readiness",
-  missingTitle: "Missing Backend Topics Added",
+
   estimatedTime: "96w",
   miniProjectLabel: "Mini Project",
   stageSummaries: stageSummaries,
@@ -561,6 +550,6 @@ export const backendRoadmap = {
   projectTracks: projectTracks,
   resourceCategories: resourceCategories,
   achievementBadges: ["API Architect", "Database Designer", "Security Defender", "Cloud Operator"],
-  missingTopics: missingTopics,
+
   readinessMetrics: readinessMetrics,
 } satisfies RoadmapPageShellProps;

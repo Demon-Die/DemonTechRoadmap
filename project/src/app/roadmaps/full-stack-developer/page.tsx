@@ -1948,20 +1948,6 @@ const projectTracks: ProjectTrack[] = [
   }
 ];
 
-const missingTopics: string[] = [
-  "Web accessibility beyond basics",
-  "Design systems",
-  "Feature flags",
-  "Payments and subscriptions",
-  "Email delivery",
-  "Search engines",
-  "Data privacy and compliance",
-  "Product analytics",
-  "A/B testing",
-  "AI-assisted developer workflows",
-  "Internationalization",
-  "Mobile-first product QA"
-];
 
 const careerPaths: RoadmapPath[] = [
   {
@@ -2007,14 +1993,6 @@ const achievementBadges: string[] = [
   "Technical Mentor",
 ];
 
-const progressSchema: Array<[string, string]> = [
-  ["users", "id, name, email, role, created_at"],
-  ["roadmap_progress", "user_id, roadmap_id, completed_node_ids, xp, streak_days"],
-  ["topic_notes", "user_id, topic_id, note, updated_at"],
-  ["bookmarks", "user_id, topic_id, created_at"],
-  ["quiz_attempts", "user_id, topic_id, score, completed_at"],
-  ["certificates", "user_id, roadmap_id, issued_at, verification_hash"],
-];
 
 const gamificationCards: Array<[string, string]> = [
   ["Project Milestones", "Track shipped full-stack projects from starter apps to SaaS-grade systems."],
@@ -2046,11 +2024,9 @@ export default function FullStackDeveloperRoadmap() {
       resourceTitle="Full Stack Resource Matrix"
       pathTitle="Career Paths"
       pathDescription="Choose a full-stack specialization track based on product depth, platform complexity, and leadership goals."
-      gamificationTitle="Learning Features & Component Plan"
-      progressSchemaTitle="Progress Database Schema"
+      gamificationTitle="Learning Features"
       progressTitle="Full Stack Progress"
       readinessTitle="Full Stack Readiness"
-      missingTitle="Missing Full Stack Topics Added"
       estimatedTime="76-102w"
       miniProjectLabel="Mini Project"
       stageSummaries={stageSummaries}
@@ -2059,9 +2035,7 @@ export default function FullStackDeveloperRoadmap() {
       resourceCategories={resourceCategories}
       paths={careerPaths}
       gamificationCards={gamificationCards}
-      progressSchema={progressSchema}
       achievementBadges={achievementBadges}
-      missingTopics={missingTopics}
       readinessMetrics={readinessMetrics}
     />
   );

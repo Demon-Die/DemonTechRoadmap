@@ -358,7 +358,7 @@ export default function Changelog() {
           </div>
 
           <footer className="mx-auto mt-6 flex max-w-[1000px] flex-col gap-5 py-4 text-sm text-[var(--text-muted)] sm:flex-row sm:items-center sm:justify-between">
-            <p>© 2026 DemonTech Roadmap. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} DemonTech Roadmap. All rights reserved.</p>
             <div className="flex flex-wrap gap-6">
               <a className="transition hover:text-red-500" href="https://github.com/Demon-Die/DemonTechRoadmap" rel="noreferrer" target="_blank">GitHub</a>
               <a className="transition hover:text-red-500" href="https://discord.gg/yWtjK2Tb8T" rel="noreferrer" target="_blank">Discord</a>

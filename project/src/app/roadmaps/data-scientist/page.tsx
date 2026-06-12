@@ -1892,20 +1892,6 @@ const projectTracks: ProjectTrack[] = [
   }
 ];
 
-const missingTopics: string[] = [
-  "Causal inference",
-  "A/B testing and experimentation",
-  "Time series forecasting",
-  "Bayesian statistics",
-  "Data contracts",
-  "Vector databases",
-  "Feature stores",
-  "Model cards",
-  "Model interpretability",
-  "Fairness audits",
-  "Privacy-preserving ML",
-  "Synthetic data generation"
-];
 
 const careerPaths: RoadmapPath[] = [
   {
@@ -2023,32 +2009,6 @@ const achievementBadges: string[] = [
   "Insight Leader"
 ];
 
-const progressSchema: Array<[string, string]> = [
-  [
-    "users",
-    "id, name, email, role, created_at"
-  ],
-  [
-    "data_science_progress",
-    "user_id, roadmap_id, completed_node_ids, xp, streak_days, readiness_scores"
-  ],
-  [
-    "notebook_runs",
-    "user_id, topic_id, dataset_name, status, score, completed_at"
-  ],
-  [
-    "experiment_logs",
-    "user_id, experiment_id, metrics_json, model_version, notes"
-  ],
-  [
-    "certification_tracking",
-    "user_id, certification_id, target_date, status, score"
-  ],
-  [
-    "research_notes",
-    "user_id, paper_id, summary, replication_status, updated_at"
-  ]
-];
 
 const gamificationCards: Array<[string, string]> = [
   ["Portfolio Milestones", "Track notebooks, dashboards, ML systems, GenAI demos, and production data products."],
@@ -2082,11 +2042,9 @@ export default function DataScientistRoadmap() {
       pathDescription="Choose a specialization across analytics, machine learning, AI engineering, MLOps, research, and data leadership."
       certificationTitle="Data Science Certifications Tracker"
       certificationDescription="Use certifications as optional validation for analytics, ML, cloud AI, and data engineering competency."
-      gamificationTitle="Learning Features & Component Plan"
-      progressSchemaTitle="Data Science Progress Database Schema"
+      gamificationTitle="Learning Features"
       progressTitle="Data Science Progress"
       readinessTitle="Data Science Readiness"
-      missingTitle="Missing Data Science Topics Added"
       estimatedTime="82-112w"
       miniProjectLabel="Portfolio Project"
       stageSummaries={stageSummaries}
@@ -2096,9 +2054,7 @@ export default function DataScientistRoadmap() {
       paths={careerPaths}
       certifications={certificationPaths}
       gamificationCards={gamificationCards}
-      progressSchema={progressSchema}
       achievementBadges={achievementBadges}
-      missingTopics={missingTopics}
       readinessMetrics={readinessMetrics}
     />
   );

@@ -1,10 +1,4 @@
-import { getRepoDetails } from "@/src/lib/github";
-
-export default async function SocialProof() {
-  const repo = await getRepoDetails();
-  
-  const stars = repo ? repo.stargazers_count.toLocaleString() : "500+";
-
+export default function SocialProof() {
   return (
     <div className="grid gap-3 sm:grid-cols-3">
       <div className="border-l border-zinc-800 pl-4">

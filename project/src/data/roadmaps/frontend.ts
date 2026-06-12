@@ -496,7 +496,7 @@ const projectTracks: ProjectTrack[] = [
 
 const achievementBadges: string[] = ["Web Foundations", "CSS Architect", "TypeScript Builder", "React Engineer", "Next.js Operator", "Accessibility Advocate", "Performance Tuner", "Frontend DevOps"];
 
-const missingTopics: string[] = ["Browser rendering", "Core Web Vitals", "Frontend security", "Design systems", "Web workers", "Microfrontends", "PWA strategy", "AI-assisted frontend workflows"];
+
 
 const gamificationCards: Array<[string, string]> = [
   ["Topic Bookmarks", "Save high-priority frontend topics while moving through the timeline."],
@@ -526,7 +526,7 @@ export const frontendRoadmap = {
   gamificationTitle: "Learning Features",
   progressTitle: "Frontend Progress",
   readinessTitle: "Frontend Readiness",
-  missingTitle: "Missing Frontend Topics Added",
+
   estimatedTime: "40-52w",
   miniProjectLabel: "Mini Project",
   stageSummaries: stageSummaries,
@@ -535,6 +535,6 @@ export const frontendRoadmap = {
   resourceCategories: resourceCategories,
   gamificationCards: gamificationCards,
   achievementBadges: achievementBadges,
-  missingTopics: missingTopics,
+
   readinessMetrics: readinessMetrics,
 } satisfies RoadmapPageShellProps;

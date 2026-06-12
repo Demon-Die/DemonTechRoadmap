@@ -1730,20 +1730,7 @@ const projectTracks: ProjectTrack[] = [
   }
 ];
 
-const missingTopics: string[] = [
-  "GitOps and Argo CD",
-  "Progressive delivery",
-  "Policy as code",
-  "Secrets rotation",
-  "Supply-chain security",
-  "FinOps and cost governance",
-  "Chaos engineering",
-  "Runbook automation",
-  "SLO governance",
-  "Developer portals",
-  "Blue-green and canary deployments",
-  "Capacity forecasting"
-];
+
 
 const careerPaths: RoadmapPath[] = [
   {
@@ -1888,32 +1875,7 @@ const achievementBadges: string[] = [
   "Platform Architect"
 ];
 
-const progressSchema: Array<[string, string]> = [
-  [
-    "users",
-    "id, name, email, role, created_at"
-  ],
-  [
-    "devops_progress",
-    "user_id, roadmap_id, completed_node_ids, xp, streak_days, maturity_level"
-  ],
-  [
-    "lab_runs",
-    "user_id, topic_id, sandbox_url, status, started_at, completed_at"
-  ],
-  [
-    "incident_simulations",
-    "user_id, scenario_id, mttr, notes, completed_at"
-  ],
-  [
-    "certification_tracking",
-    "user_id, certification_id, target_date, status, score"
-  ],
-  [
-    "infra_notes",
-    "user_id, topic_id, note, updated_at"
-  ]
-];
+
 
 const gamificationCards: Array<[string, string]> = [
   ["Hands-on Labs", "Track Linux, pipelines, container, cloud, Kubernetes, and SRE labs as concrete milestones."],
@@ -1946,11 +1908,9 @@ export const devopsRoadmap = {
   pathDescription: "Pick a specialization across cloud operations, platform engineering, SRE, security, and infrastructure architecture.",
   certificationTitle: "Cloud Certifications Tracker",
   certificationDescription: "Use certifications as structured validation for cloud, Kubernetes, Linux, and security skills.",
-  gamificationTitle: "Learning Features & Component Plan",
-  progressSchemaTitle: "DevOps Progress Database Schema",
+  gamificationTitle: "Learning Features",
   progressTitle: "DevOps Progress",
   readinessTitle: "DevOps Readiness",
-  missingTitle: "Missing DevOps Topics Added",
   estimatedTime: "78-108w",
   miniProjectLabel: "Infrastructure Lab",
   stageSummaries: stageSummaries,
@@ -1960,8 +1920,8 @@ export const devopsRoadmap = {
   paths: careerPaths,
   certifications: certificationPaths,
   gamificationCards: gamificationCards,
-  progressSchema: progressSchema,
+
   achievementBadges: achievementBadges,
-  missingTopics: missingTopics,
+
   readinessMetrics: readinessMetrics,
 } satisfies RoadmapPageShellProps;
