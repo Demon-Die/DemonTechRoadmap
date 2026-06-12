@@ -1,10 +1,10 @@
 import { copyFile, access } from "node:fs/promises";
 import { constants } from "node:fs";
 
-// With distDir: "../.next" in next.config.ts, Next.js outputs to the repo root .next/
-// (i.e., ../../.next relative to this script in project/scripts/)
-const source = new URL("../../.next/routes-manifest.json", import.meta.url);
-const target = new URL("../../.next/routes-manifest-deterministic.json", import.meta.url);
+// With Vercel rootDirectory=project, Next.js outputs to project/.next/
+// (i.e., ../.next relative to this script in project/scripts/)
+const source = new URL("../.next/routes-manifest.json", import.meta.url);
+const target = new URL("../.next/routes-manifest-deterministic.json", import.meta.url);
 
 export async function ensureVercelRoutesManifest() {
   try {
