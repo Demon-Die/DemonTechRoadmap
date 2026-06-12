@@ -55,8 +55,8 @@ const frontendNodes: FrontendRoadmapNode[] = [
     keyConcepts: ["DNS", "HTTP and HTTPS", "Browser rendering", "URLs", "Request lifecycle", "Caching basics"],
     resources: [
       { label: "MDN: How the Web works", href: "https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work", category: "Official documentation" },
-      { label: "web.dev: Learn performance basics", href: "https://web.dev/learn/performance", category: "Official documentation" },
-      { label: "freeCodeCamp web basics", href: "https://www.freecodecamp.org/news/tag/web-development/", category: "Video resources" },
+      { label: "web.dev: How browsers work", href: "https://web.dev/articles/howbrowserswork", category: "Official documentation" },
+      { label: "freeCodeCamp web basics", href: "https://www.freecodecamp.org/news/how-the-internet-works/", category: "Community resources" },
     ],
     practiceTasks: ["Draw the request lifecycle for opening a web page.", "Inspect headers, status codes, and assets in browser devtools.", "Explain DNS, CDN, and HTTPS in your own words."],
     miniProject: "Create a one-page visual explainer of how a browser loads a website.",
@@ -72,7 +72,7 @@ const frontendNodes: FrontendRoadmapNode[] = [
     keyConcepts: ["Semantic elements", "Forms", "Tables", "Metadata", "SEO basics", "Accessible markup"],
     resources: [
       { label: "MDN HTML", href: "https://developer.mozilla.org/en-US/docs/Web/HTML", category: "Official documentation" },
-      { label: "HTML roadmap", href: "/roadmaps/html5", category: "Community resources" },
+      { label: "web.dev: Learn HTML", href: "https://web.dev/learn/html", category: "Official documentation" },
       { label: "freeCodeCamp HTML course", href: "https://www.freecodecamp.org/learn/2022/responsive-web-design/", category: "Interactive practice" },
     ],
     practiceTasks: ["Build a semantic resume page.", "Create a validated contact form.", "Mark up a blog article with headings, landmarks, and metadata."],
@@ -89,7 +89,7 @@ const frontendNodes: FrontendRoadmapNode[] = [
     keyConcepts: ["Cascade", "Specificity", "Box model", "Typography", "Color systems", "Custom properties"],
     resources: [
       { label: "MDN CSS", href: "https://developer.mozilla.org/en-US/docs/Web/CSS", category: "Official documentation" },
-      { label: "CSS roadmap", href: "/roadmaps/css", category: "Community resources" },
+      { label: "web.dev: Learn CSS", href: "https://web.dev/learn/css", category: "Official documentation" },
       { label: "CSS Diner", href: "https://flukeout.github.io/", category: "Interactive practice" },
     ],
     practiceTasks: ["Recreate a landing page screenshot.", "Build reusable button and card styles.", "Create a consistent spacing and color system."],
@@ -125,6 +125,7 @@ const frontendNodes: FrontendRoadmapNode[] = [
       { label: "MDN Flexbox", href: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox", category: "Official documentation" },
       { label: "MDN Grid", href: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids", category: "Official documentation" },
       { label: "Flexbox Froggy", href: "https://flexboxfroggy.com/", category: "Interactive practice" },
+      { label: "CSS Grid Garden", href: "https://cssgridgarden.com/", category: "Interactive practice" },
     ],
     practiceTasks: ["Build a responsive navbar with Flexbox.", "Build a magazine layout with Grid.", "Create a dashboard shell with sidebar, header, and content regions."],
     miniProject: "Build a responsive analytics dashboard layout.",
@@ -157,8 +158,8 @@ const frontendNodes: FrontendRoadmapNode[] = [
     keyConcepts: ["Variables", "Nesting", "Modules", "Mixins", "Functions", "Architecture"],
     resources: [
       { label: "Sass documentation", href: "https://sass-lang.com/documentation/", category: "Official documentation" },
-      { label: "Sass roadmap", href: "/roadmaps/sass", category: "Community resources" },
       { label: "Sass guide", href: "https://sass-lang.com/guide/", category: "Official documentation" },
+      { label: "freeCodeCamp Sass tutorial", href: "https://www.freecodecamp.org/news/the-beginners-guide-to-sass/", category: "Community resources" },
     ],
     practiceTasks: ["Refactor CSS into SCSS partials.", "Create reusable mixins for media queries.", "Build a token file for spacing and colors."],
     miniProject: "Create a reusable component library stylesheet.",
@@ -174,7 +175,7 @@ const frontendNodes: FrontendRoadmapNode[] = [
     keyConcepts: ["Utility classes", "Variants", "Theme tokens", "Component extraction", "Responsive utilities", "Dark mode"],
     resources: [
       { label: "Tailwind documentation", href: "https://tailwindcss.com/docs", category: "Official documentation" },
-      { label: "Tailwind roadmap", href: "/roadmaps/tailwind", category: "Community resources" },
+      { label: "Tailwind CSS: Core concepts", href: "https://tailwindcss.com/docs/utility-first", category: "Official documentation" },
       { label: "Tailwind Play", href: "https://play.tailwindcss.com/", category: "Interactive practice" },
     ],
     practiceTasks: ["Build a dashboard shell.", "Create reusable typed components.", "Implement dark mode and responsive states."],
@@ -191,7 +192,7 @@ const frontendNodes: FrontendRoadmapNode[] = [
     keyConcepts: ["Functions", "Objects", "Arrays", "DOM", "Events", "Promises", "Fetch", "Modules"],
     resources: [
       { label: "MDN JavaScript", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", category: "Official documentation" },
-      { label: "JavaScript roadmap", href: "/roadmaps/javascript", category: "Community resources" },
+      { label: "Eloquent JavaScript (free book)", href: "https://eloquentjavascript.net/", category: "Community resources" },
       { label: "JavaScript.info", href: "https://javascript.info/", category: "Interactive practice" },
     ],
     practiceTasks: ["Build a form validator.", "Fetch and render API data.", "Handle loading, success, and error states."],
@@ -430,7 +431,7 @@ const frontendNodes: FrontendRoadmapNode[] = [
     resources: [
       { label: "Vercel docs", href: "https://vercel.com/docs", category: "Official documentation" },
       { label: "GitHub Actions docs", href: "https://docs.github.com/en/actions", category: "Official documentation" },
-      { label: "Deployment roadmap", href: "/docs/best-practices", category: "Community resources" },
+      { label: "web.dev: Why speed matters", href: "https://web.dev/learn/performance/why-speed-matters", category: "Official documentation" },
     ],
     practiceTasks: ["Create preview deployments.", "Protect production environment variables.", "Add build, lint, and test checks to CI."],
     miniProject: "Deploy a production Next.js app with monitoring and rollback notes.",
@@ -448,6 +449,7 @@ const frontendNodes: FrontendRoadmapNode[] = [
       { label: "web.dev PWA", href: "https://web.dev/learn/pwa/", category: "Official documentation" },
       { label: "OWASP frontend security", href: "https://owasp.org/www-project-top-ten/", category: "Official documentation" },
       { label: "Storybook docs", href: "https://storybook.js.org/docs", category: "Official documentation" },
+      { label: "web.dev: Web Workers overview", href: "https://web.dev/articles/workers-overview", category: "Official documentation" },
     ],
     practiceTasks: ["Create a design system foundation.", "Add realtime updates with WebSockets.", "Document frontend security risks and mitigations."],
     miniProject: "Build a design-system-backed realtime project board.",
