@@ -26,23 +26,39 @@ if (exitCode === 0) {
   await ensureVercelRoutesManifest();
 
   // Vercel's post-build validator ALWAYS checks /vercel/path0/.next/ (the repo root)
-  // regardless of outputDirectory or rootDirectory settings. The build outputs to
-  // project/.next/. We mirror only the pure JSON manifest files — NOT .nft.json trace
-  // files or JavaScript server bundles — to avoid trace resolution errors when those
-  // files are read from a different directory depth.
-  const srcNextDir = new URL("../.next/", import.meta.url).pathname;   // project/.next/
+  // regardless of outputDirectory settings. The actual build outputs to project/.next/.
+  // We mirror the files that the validator needs:
+  //
+  // Safe to mirror at any depth:
+  //   - All *.json files (excluding *.nft.json trace files which have relative paths)
+  //   - Root-level files in server/ (middleware-build-manifest.js, etc.) — these are
+  //     pure data exports with no require() statements
+  //
+  // NOT safe to mirror (have require() calls / trace deps that break at different depths):
+  //   - Files in server/app/, server/pages/, server/chunks/ subdirectories
+  //   - *.nft.json trace files
+
+  const srcNextDir = new URL("../.next/", import.meta.url).pathname;    // project/.next/
   const dstNextDir = new URL("../../.next/", import.meta.url).pathname; // repo root .next/
 
-  async function copyJsonManifests(src, dst) {
+  /** Directories under .next/server/ that contain JS bundles with trace dependencies */
+  const SERVER_BUNDLE_DIRS = new Set(["app", "pages", "chunks", "edge-chunks", "edge-runtime-webpack"]);
+
+  async function mirrorSafeFiles(src, dst, depth = 0) {
     await mkdir(dst, { recursive: true });
     const entries = await readdir(src, { withFileTypes: true });
+
     for (const entry of entries) {
       const srcPath = join(src, entry.name);
       const dstPath = join(dst, entry.name);
+
       if (entry.isDirectory()) {
-        await copyJsonManifests(srcPath, dstPath);
-      } else if (entry.name.endsWith(".json") && !entry.name.endsWith(".nft.json")) {
-        // Only copy pure JSON manifests — skip .nft.json trace files and JS bundles
+        // At depth=1 (inside server/), skip bundle subdirectories
+        if (depth === 1 && SERVER_BUNDLE_DIRS.has(entry.name)) continue;
+        await mirrorSafeFiles(srcPath, dstPath, depth + 1);
+      } else {
+        // Skip .nft.json trace files (relative paths break at different depths)
+        if (entry.name.endsWith(".nft.json")) continue;
         await copyFile(srcPath, dstPath);
       }
     }
@@ -50,8 +66,8 @@ if (exitCode === 0) {
 
   try {
     await rm(dstNextDir, { recursive: true, force: true });
-    await copyJsonManifests(srcNextDir, dstNextDir);
-    console.log("Mirrored JSON manifests to repo root .next/ for Vercel post-build validation.");
+    await mirrorSafeFiles(srcNextDir, dstNextDir);
+    console.log("Mirrored safe manifest files to repo root .next/ for Vercel post-build validation.");
   } catch (err) {
     console.error("Warning: could not mirror manifests to repo root:", err.message);
   }
